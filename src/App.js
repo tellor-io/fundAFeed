@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from 'react'
 //Components
-import Nav from "./components/frontendBoilerplate/Nav";
-import Footer from "./components/frontendBoilerplate/Footer";
-import Hero from "./components/Hero";
+import Nav from './components/frontendBoilerplate/Nav'
+import Footer from './components/frontendBoilerplate/Footer'
+import Hero from './components/Hero'
 //Styles
-import './App.css';
+import './App.css'
 
 function App() {
   return (
@@ -13,9 +13,9 @@ function App() {
       <div className="HeroContainer">
         <Hero />
       </div>
-      <Footer/>
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
