@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 //Components
 import Nav from "./components/frontendBoilerplate/Nav";
 import Footer from "./components/frontendBoilerplate/Footer";
+import Hero from "./components/Hero";
 //Styles
 import './App.css';
 
@@ -10,7 +11,7 @@ function App() {
     <div className="App">
       <Nav />
       <div className="HeroContainer">
-        <h1>Your App Goes Here</h1>
+        <Hero />
       </div>
       <Footer/>
     </div>

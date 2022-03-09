@@ -1,0 +1,52 @@
+.HeroInnerContainer {
+    margin: 0px 500px 0px 100px;
+  }
+  .HeroHeader {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 51px;
+    line-height: 60px;
+    margin-bottom: 20px;
+  }
+  .HeroMainText {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+  .HeroMainText > a {
+    color: #20f092;
+    text-decoration: none;
+  }
+  .HeroDropdowns > label {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+  }
+  #assetInput {
+    margin-right: 16px;
+  }
+  .dropdown {
+    width: 100px;
+    height: 24px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding-left: 5px;
+    padding-top: 2px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .dropdown::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+  }
+  .dropdown:focus, 
+  .dropdown:focus-visible, 
+  .dropdown:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  
