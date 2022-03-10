@@ -15,8 +15,8 @@ const initialDropdownValues = {
 }
 
 const initialParameterValues = {
+  fundAmount: '',
   tipAmount: '',
-  tipType: 'trb',
   windowAmount: '',
   windowType: '',
   durationAmount: '',
@@ -96,7 +96,7 @@ function Hero() {
 
   return (
     <div className="HeroInnerContainer">
-      <h1 className="HeroHeader">Fund a SpotPrice Feed</h1>
+      <h1 className="HeroHeader">Fund a Price Feed</h1>
       <p className="HeroMainText">
         Already have your{' '}
         <a
@@ -163,7 +163,15 @@ function Hero() {
         }
       >
         <p>
-          Tip your reporter{' '}
+          With{' '}
+          <input
+            type="text"
+            className="HeroParameterFeedNumberInput"
+            name="fundAmount"
+            value={parameterForm.fundAmount}
+            onChange={handleParameterChange}
+          />{' '}
+          TRB to fund your feed, this autopay will tip your reporter{' '}
           <input
             type="text"
             className="HeroParameterNumberInput"
@@ -171,16 +179,7 @@ function Hero() {
             value={parameterForm.tipAmount}
             onChange={handleParameterChange}
           />
-          <select
-            type="text"
-            className="HeroParameterDropdownInput"
-            name="tipType"
-            value={parameterForm.tipType}
-            onChange={handleParameterChange}
-          >
-            <option value="trb">TRB</option>
-          </select>{' '}
-          for data reported within a{' '}
+          TRB, as a reward, for data reported within a{' '}
           <input
             type="text"
             className="HeroParameterNumberInput"
@@ -195,7 +194,6 @@ function Hero() {
             value={parameterForm.windowType}
             onChange={handleParameterChange}
           >
-            <option value="second">second</option>
             <option value="minute">minute</option>
             <option value="hour">hour</option>
             <option value="day">day</option>
@@ -215,7 +213,6 @@ function Hero() {
             value={parameterForm.durationType}
             onChange={handleParameterChange}
           >
-            <option value="seconds">seconds</option>
             <option value="minutes">minutes</option>
             <option value="hours">hours</option>
             <option value="days">days</option>

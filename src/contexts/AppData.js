@@ -15,8 +15,7 @@ function AppData({ children }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data)
-        //NEED TO FIGURE OUT THE DUPLICATE
-        //SITUATION!!!!!!!!!!!!!!!!!!!!!!!
+        //NEED TO FIGURE OUT THE DUPLICATE SITUATION!!!
         data.forEach((coin) => {
           assetArray.push(coin.symbol)
         })

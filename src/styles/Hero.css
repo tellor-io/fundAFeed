@@ -82,6 +82,21 @@
   font-weight: 300;
   font-size: 18px;
 }
+.HeroParameterFeedNumberInput {
+  width: 50px;
+  height: 25px;
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0;
+  padding-left: 5px;
+  margin-right: 2px;
+  border: none;
+  background-color: rgba(32, 240, 146, 0.2);
+  border-bottom: 2px solid #20f092;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
 .HeroParameterNumberInput {
   width: 25px;
   height: 25px;
