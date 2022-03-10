@@ -19,7 +19,7 @@ function Nav() {
       >
         <Tellor className="TellorLogo" />
       </a>
-      {user && user.currentUser ? <WalletConnect /> : null}
+      {user && user.currentUser ? <WalletConnect nav={true} /> : null}
     </div>
   )
 }

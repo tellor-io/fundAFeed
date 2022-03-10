@@ -61,6 +61,17 @@
   margin: 44px 0px 30px 0px;
   user-select: none;
 }
+.HeroInfoBoxConnected {
+  width: 418px;
+  height: 124px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 2px solid #ffffff;
+  margin: 44px 0px 30px 0px;
+  padding-left: 20px;
+  user-select: none;
+}
 /* */
 .HeroSetParameters {
   padding-right: 200px;

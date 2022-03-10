@@ -14,7 +14,7 @@ function AppData({ children }) {
     fetch('https://api.coingecko.com/api/v3/coins/list?include_platform=true')
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
+        console.log(data)
         //NEED TO FIGURE OUT THE DUPLICATE
         //SITUATION!!!!!!!!!!!!!!!!!!!!!!!
         data.forEach((coin) => {

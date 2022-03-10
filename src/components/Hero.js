@@ -6,7 +6,8 @@ import { AppDataContext } from '../contexts/AppData'
 import { UserContext } from '../contexts/User'
 //Components
 import WalletConnect from './frontendBoilerplate/WalletConnect'
-import LinearIndeterminate from './reusableComponents/LinearIndeterminate'
+import LinearIndeterminate from './LinearIndeterminate'
+import InfoBoxConnected from './InfoBoxConnected'
 
 const initialDropdownValues = {
   asset: '',
@@ -148,11 +149,15 @@ function Hero() {
         <LinearIndeterminate />
       )}
       <div className={infoBoxDisabled ? 'HeroInfoBox disabled' : 'HeroInfoBox'}>
-        <WalletConnect />
+        {userData.currentUser ? (
+          <InfoBoxConnected />
+        ) : (
+          <WalletConnect nav={false} />
+        )}
       </div>
       <div
         className={
-          userData.currentUser
+          userData.currentUser && !infoBoxDisabled
             ? 'HeroSetParameters'
             : 'HeroSetParameters disabled'
         }

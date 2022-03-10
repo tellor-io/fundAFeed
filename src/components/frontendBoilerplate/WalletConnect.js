@@ -10,7 +10,7 @@ import { CustomTooltip } from './CustomTooltip'
 import { truncateAddr } from '../../utils/helpers'
 import { useMediaQuery } from 'react-responsive'
 
-function WalletConnect() {
+function WalletConnect({ nav }) {
   //Context Data
   const user = useContext(UserContext)
   //Component State
@@ -46,8 +46,15 @@ function WalletConnect() {
     setShowTooltip(!showTooltip)
   }
 
+  const navStylesBorder = { border: '2px solid #ffffff' }
+  const navStylesText = { color: '#ffffff' }
+
   return (
-    <div className="WalletConnect" onClick={() => startFlow()}>
+    <div
+      className="WalletConnect"
+      onClick={() => startFlow()}
+      style={nav ? navStylesBorder : null}
+    >
       {user && user.currentUser ? (
         <CustomTooltip
           open={showTooltip}
@@ -63,6 +70,7 @@ function WalletConnect() {
             className="WalletConnected"
             onMouseEnter={() => showTrbBalance()}
             onMouseLeave={() => showTrbBalance()}
+            style={nav ? navStylesText : null}
           >
             <Jazzicon address={user.currentUser.address} className="Jazzicon" />
             <p>{`${user.currentUser.network} connected: ${truncateAddr(
