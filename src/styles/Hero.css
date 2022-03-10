@@ -28,7 +28,7 @@
 }
 .dropdown {
   width: 100px;
-  height: 24px;
+  height: 22px;
   font-family: 'Inconsolata';
   font-size: 18px;
   font-weight: 300;
@@ -50,7 +50,7 @@
   outline-color: #20f092;
   outline-width: 1px;
 }
-
+/* */
 .HeroInfoBox {
   width: 418px;
   height: 124px;
@@ -59,12 +59,67 @@
   align-items: center;
   border: 2px solid #ffffff;
   margin: 44px 0px 30px 0px;
+  user-select: none;
 }
+/* */
 .HeroSetParameters {
   padding-right: 200px;
   margin-bottom: 30px;
-  font-weight: 300;
+  user-select: none;
 }
+.HeroSetParameters > p {
+  font-weight: 300;
+  font-size: 18px;
+}
+.HeroParameterNumberInput {
+  width: 25px;
+  height: 25px;
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0;
+  padding-left: 5px;
+  margin-right: 2px;
+  border: none;
+  background-color: rgba(32, 240, 146, 0.2);
+  border-bottom: 2px solid #20f092;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+.HeroParameterNumberInput::placeholder {
+  color: #ffffff;
+  opacity: 0.6;
+}
+.HeroParameterNumberInput:focus,
+.HeroParameterNumberInput:focus-visible,
+.HeroParameterNumberInput:focus-within {
+  outline-color: #20f092;
+  outline-width: 1px;
+}
+.HeroParameterDropdownInput {
+  width: 90px;
+  height: 27px;
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  font-weight: 300;
+  border: none;
+  margin-bottom: 5px;
+  background-color: rgba(32, 240, 146, 0.2);
+  border-bottom: 2px solid #20f092;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+.HeroParameterDropdownInput::placeholder {
+  color: #ffffff;
+  opacity: 0.6;
+}
+.HeroParameterDropdownInput:focus,
+.HeroParameterDropdownInput:focus-visible,
+.HeroParameterDropdownInput:focus-within {
+  outline-color: #20f092;
+  outline-width: 1px;
+}
+/* */
 .HeroFundFeed {
   width: fit-content;
   height: 38px;
@@ -72,5 +127,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #ffffff;
+  border: 2px solid #20f092;
+  color: #20f092;
+  user-select: none;
+}
+.HeroFundFeed:hover {
+  cursor: pointer;
 }

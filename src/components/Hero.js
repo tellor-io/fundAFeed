@@ -1,8 +1,9 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 //Styles
 import '../styles/Hero.css'
 //Context
 import { AppDataContext } from '../contexts/AppData'
+import { UserContext } from '../contexts/User'
 //Components
 import WalletConnect from './frontendBoilerplate/WalletConnect'
 import LinearIndeterminate from './reusableComponents/LinearIndeterminate'
@@ -12,18 +13,85 @@ const initialDropdownValues = {
   currency: '',
 }
 
+const initialParameterValues = {
+  tipAmount: '',
+  tipType: 'trb',
+  windowAmount: '',
+  windowType: '',
+  durationAmount: '',
+  durationType: '',
+  startTime: '',
+  startDate: '',
+}
+
 function Hero() {
   //Component State
-  const [form, setForm] = useState(initialDropdownValues)
+  const [dropdownForm, setDropdownForm] = useState(initialDropdownValues)
+  const [parameterForm, setParameterForm] = useState(initialParameterValues)
+  const [infoBoxDisabled, setInfoBoxDisabled] = useState(true)
+  const [fundFeedDisabled, setFundFeedDisabled] = useState(true)
   //Context
   const data = useContext(AppDataContext)
-  console.log(data)
+  const userData = useContext(UserContext)
 
-  const handleChange = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value })
+  //Handlers
+  const handleDropdownChange = (event) => {
+    setDropdownForm({
+      ...dropdownForm,
+      [event.target.name]: event.target.value,
+    })
   }
-
-  console.log('FORM VALUES:: ', form)
+  const handleParameterChange = (event) => {
+    setParameterForm({
+      ...parameterForm,
+      [event.target.name]: event.target.value,
+    })
+  }
+  const handleFundFeed = () => {
+    console.log('FUND FEED!!!')
+  }
+  //Helpers
+  //useEffect to make sure SpotPrice
+  //asset and currency are valid entries
+  //before connecting wallet to page.
+  useEffect(() => {
+    if (!data.assets || !data.currencies) return
+    if (
+      data.assets.includes(dropdownForm.asset) &&
+      data.currencies.includes(dropdownForm.currency)
+    ) {
+      setInfoBoxDisabled(false)
+    } else {
+      setInfoBoxDisabled(true)
+    }
+  }, [dropdownForm, data.assets, data.currencies])
+  //useEffect to make sure feed parameters
+  //valid entries before being able to submit.
+  useEffect(() => {
+    console.log(parameterForm)
+    if (
+      parameterForm.tipAmount &&
+      parameterForm.tipType &&
+      parameterForm.windowAmount &&
+      parameterForm.windowType &&
+      parameterForm.durationAmount &&
+      parameterForm.durationType &&
+      parameterForm.startTime &&
+      parameterForm.startDate
+    ) {
+      setFundFeedDisabled(false)
+    }
+  }, [
+    parameterForm,
+    parameterForm.tipAmount,
+    parameterForm.tipType,
+    parameterForm.windowAmount,
+    parameterForm.windowType,
+    parameterForm.durationAmount,
+    parameterForm.durationType,
+    parameterForm.startTime,
+    parameterForm.startDate,
+  ])
 
   return (
     <div className="HeroInnerContainer">
@@ -49,9 +117,10 @@ function Hero() {
             name="asset"
             id="assetInput"
             className="dropdown"
-            value={form.asset}
-            onChange={handleChange}
+            value={dropdownForm.asset}
+            onChange={handleDropdownChange}
             placeholder="Search"
+            spellCheck={false}
           />
           <datalist id="assetDropdown">
             {data.assets &&
@@ -63,9 +132,10 @@ function Hero() {
             type="text"
             name="currency"
             className="dropdown"
-            value={form.currency}
-            onChange={handleChange}
+            value={dropdownForm.currency}
+            onChange={handleDropdownChange}
             placeholder="Search"
+            spellCheck={false}
           />
           <datalist id="currencyDropdown">
             {data.currencies &&
@@ -77,18 +147,105 @@ function Hero() {
       ) : (
         <LinearIndeterminate />
       )}
-      <div className="HeroInfoBox">
+      <div className={infoBoxDisabled ? 'HeroInfoBox disabled' : 'HeroInfoBox'}>
         <WalletConnect />
       </div>
-      <div className="HeroSetParameters">
+      <div
+        className={
+          userData.currentUser
+            ? 'HeroSetParameters'
+            : 'HeroSetParameters disabled'
+        }
+      >
         <p>
-          Tip your reporter <input type="text" /> for data reported within a{' '}
-          <input type="text" /> window every <input type="text" /> beginning{' '}
-          <input type="text" />
-          <input type="text" />.
+          Tip your reporter{' '}
+          <input
+            type="text"
+            className="HeroParameterNumberInput"
+            name="tipAmount"
+            value={parameterForm.tipAmount}
+            onChange={handleParameterChange}
+          />
+          <select
+            type="text"
+            className="HeroParameterDropdownInput"
+            name="tipType"
+            value={parameterForm.tipType}
+            onChange={handleParameterChange}
+          >
+            <option value="trb">TRB</option>
+          </select>{' '}
+          for data reported within a{' '}
+          <input
+            type="text"
+            className="HeroParameterNumberInput"
+            name="windowAmount"
+            value={parameterForm.windowAmount}
+            onChange={handleParameterChange}
+          />
+          <select
+            type="text"
+            className="HeroParameterDropdownInput"
+            name="windowType"
+            value={parameterForm.windowType}
+            onChange={handleParameterChange}
+          >
+            <option value="second">second</option>
+            <option value="minute">minute</option>
+            <option value="hour">hour</option>
+            <option value="day">day</option>
+          </select>{' '}
+          window every{' '}
+          <input
+            type="text"
+            className="HeroParameterNumberInput"
+            name="durationAmount"
+            value={parameterForm.durationAmount}
+            onChange={handleParameterChange}
+          />
+          <select
+            type="text"
+            className="HeroParameterDropdownInput"
+            name="durationType"
+            value={parameterForm.durationType}
+            onChange={handleParameterChange}
+          >
+            <option value="seconds">seconds</option>
+            <option value="minutes">minutes</option>
+            <option value="hours">hours</option>
+            <option value="days">days</option>
+          </select>{' '}
+          beginning at{' '}
+          <select
+            type="text"
+            className="HeroParameterDropdownInput"
+            name="startTime"
+            value={parameterForm.startTime}
+            onChange={handleParameterChange}
+          >
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>{' '}
+          on{' '}
+          <select
+            type="text"
+            className="HeroParameterDropdownInput"
+            name="startDate"
+            value={parameterForm.startDate}
+            onChange={handleParameterChange}
+          >
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+          </select>
+          .
         </p>
       </div>
-      <div className="HeroFundFeed">
+      <div
+        className={fundFeedDisabled ? 'HeroFundFeed disabled' : 'HeroFundFeed'}
+        onClick={() => handleFundFeed()}
+      >
         <p>fund your feed</p>
       </div>
     </div>
