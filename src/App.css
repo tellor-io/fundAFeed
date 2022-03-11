@@ -13,8 +13,8 @@
 }
 .HeroContainer {
   width: 92%;
-  min-height: fit-content;
-  max-height: 100%;
+  height: 100%;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   background-color: #262626;
