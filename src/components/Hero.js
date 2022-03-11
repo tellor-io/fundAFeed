@@ -9,21 +9,30 @@ import WalletConnect from './frontendBoilerplate/WalletConnect'
 import LinearIndeterminate from './LinearIndeterminate'
 import InfoBoxConnected from './InfoBoxConnected'
 import ContainerModal from './modals/ContainerModal'
+//Utils
+import { timezones, dateHelper } from '../utils/time'
 
 const initialDropdownValues = {
   asset: '',
-  currency: '',
+  currency: 'usd',
 }
 
 const initialParameterValues = {
-  fundAmount: '',
-  tipAmount: '',
-  windowAmount: '',
-  windowType: '',
-  durationAmount: '',
-  durationType: '',
-  startTime: '',
-  startDate: '',
+  fundAmount: 1,
+  tipAmountNumber: 0,
+  tipAmountDecimal: 25,
+  windowAmount: 30,
+  windowType: 'minute',
+  durationAmount: 6,
+  durationType: 'hours',
+  startHourFirst: 0,
+  startHourSecond: 0,
+  startMinuteFirst: 0,
+  startMinuteSecond: 0,
+  timezone: dateHelper().localZone,
+  startDay: dateHelper().day + 1,
+  startMonth: dateHelper().month,
+  startYear: dateHelper().year,
 }
 
 function Hero() {
@@ -50,9 +59,8 @@ function Hero() {
       [event.target.name]: event.target.value,
     })
   }
-  const handleFundFeed = () => {
+  const startModalFlow = () => {
     containerModal.style.display = 'flex'
-    // console.log('FUND FEED!!!')
   }
   //Helpers
   //useEffect to make sure SpotPrice
@@ -72,7 +80,7 @@ function Hero() {
   //useEffect to make sure feed parameters
   //valid entries before being able to submit.
   useEffect(() => {
-    // console.log(parameterForm)
+    console.log(parameterForm)
     if (
       parameterForm.fundAmount &&
       parameterForm.tipAmount &&
@@ -182,24 +190,36 @@ function Hero() {
           <p>
             With{' '}
             <input
-              type="text"
-              className="HeroParameterFeedNumberInput"
+              type="number"
+              className="HeroParameterFeedNumberInputLarge"
               name="fundAmount"
               value={parameterForm.fundAmount}
               onChange={handleParameterChange}
             />{' '}
-            TRB to fund your feed, this autopay will tip your reporter{' '}
+            TRB to fund your feed, this autopay will tip your reporter (
             <input
-              type="text"
-              className="HeroParameterNumberInput"
-              name="tipAmount"
-              value={parameterForm.tipAmount}
+              type="number"
+              min={0}
+              max={9}
+              className="HeroParameterFeedNumberInputSmall"
+              name="tipAmountNumber"
+              value={parameterForm.tipAmountNumber}
               onChange={handleParameterChange}
             />
-            TRB, as a reward, for data reported within a{' '}
+            .
             <input
-              type="text"
-              className="HeroParameterNumberInput"
+              type="number"
+              min={0}
+              max={99}
+              className="HeroParameterFeedNumberInputLarge"
+              name="tipAmountDecimal"
+              value={parameterForm.tipAmountDecimal}
+              onChange={handleParameterChange}
+            />
+            ) TRB, as a reward, for data reported within a{' '}
+            <input
+              type="number"
+              className="HeroParameterFeedNumberInputLarge"
               name="windowAmount"
               value={parameterForm.windowAmount}
               onChange={handleParameterChange}
@@ -217,8 +237,8 @@ function Hero() {
             </select>{' '}
             window every{' '}
             <input
-              type="text"
-              className="HeroParameterNumberInput"
+              type="number"
+              className="HeroParameterFeedNumberInputLarge"
               name="durationAmount"
               value={parameterForm.durationAmount}
               onChange={handleParameterChange}
@@ -235,37 +255,96 @@ function Hero() {
               <option value="days">days</option>
             </select>{' '}
             beginning at{' '}
+            <input
+              type="number"
+              min={0}
+              max={2}
+              className="HeroParameterFeedNumberInputSmall"
+              name="startHourFirst"
+              value={parameterForm.startHourFirst}
+              onChange={handleParameterChange}
+            />
+            <input
+              type="number"
+              min={0}
+              max={9}
+              className="HeroParameterFeedNumberInputSmall"
+              name="startHourSecond"
+              value={parameterForm.startHourSecond}
+              onChange={handleParameterChange}
+            />
+            :
+            <input
+              type="number"
+              min={0}
+              max={5}
+              className="HeroParameterFeedNumberInputSmall"
+              name="startMinuteFirst"
+              value={parameterForm.startMinuteFirst}
+              onChange={handleParameterChange}
+            />
+            <input
+              type="number"
+              min={0}
+              max={9}
+              className="HeroParameterFeedNumberInputSmall"
+              name="startMinuteSecond"
+              value={parameterForm.startMinuteSecond}
+              onChange={handleParameterChange}
+            />
+            ,
             <select
               type="text"
               className="HeroParameterDropdownInput"
-              name="startTime"
-              value={parameterForm.startTime}
+              name="timezone"
+              value={parameterForm.timezone}
               onChange={handleParameterChange}
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
+              {timezones.map((tz) => (
+                <option value={tz.zone}>{tz.zone}</option>
+              ))}
             </select>{' '}
             on{' '}
+            <input
+              type="number"
+              min={1}
+              max={31}
+              className="HeroParameterFeedNumberInputMedium"
+              name="startDay"
+              value={parameterForm.startDay}
+              onChange={handleParameterChange}
+            />
+            <input
+              type="number"
+              min={1}
+              max={12}
+              className="HeroParameterFeedNumberInputMedium"
+              name="startMonth"
+              value={parameterForm.startMonth}
+              onChange={handleParameterChange}
+            />
             <select
               type="text"
               className="HeroParameterDropdownInput"
-              name="startDate"
-              value={parameterForm.startDate}
+              name="startYear"
+              value={parameterForm.startYear}
               onChange={handleParameterChange}
             >
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
+              <option value="2022">2022</option>
+              <option value="2023">2023</option>
+              <option value="2024">2024</option>
+              <option value="2025">2025</option>
+              <option value="2026">2026</option>
+              <option value="2027">2027</option>
             </select>
-            .
+            (DD/MM/YYYY).
           </p>
         </div>
         <div
           className={
             fundFeedDisabled ? 'HeroFundFeed disabled' : 'HeroFundFeed'
           }
-          onClick={() => handleFundFeed()}
+          onClick={() => startModalFlow()}
         >
           <p>fund your feed</p>
         </div>

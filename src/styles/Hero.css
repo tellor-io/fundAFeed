@@ -82,7 +82,7 @@
   font-weight: 300;
   font-size: 18px;
 }
-.HeroParameterFeedNumberInput {
+.HeroParameterFeedNumberInputLarge {
   width: 50px;
   height: 25px;
   font-family: 'Inconsolata';
@@ -90,12 +90,19 @@
   font-weight: 300;
   padding: 0;
   padding-left: 5px;
+  padding-right: 5px;
   margin-right: 2px;
   border: none;
   background-color: rgba(32, 240, 146, 0.2);
   border-bottom: 2px solid #20f092;
   color: #ffffff;
   caret-color: #ffffff;
+}
+.HeroParameterFeedNumberInputLarge:focus,
+.HeroParameterFeedNumberInputLarge:focus-visible,
+.HeroParameterFeedNumberInputLarge:focus-within {
+  outline-color: #20f092;
+  outline-width: 1px;
 }
 .HeroParameterNumberInput {
   width: 25px;
@@ -106,6 +113,7 @@
   padding: 0;
   padding-left: 5px;
   margin-right: 2px;
+  margin-bottom: 3px;
   border: none;
   background-color: rgba(32, 240, 146, 0.2);
   border-bottom: 2px solid #20f092;
@@ -142,6 +150,51 @@
 .HeroParameterDropdownInput:focus,
 .HeroParameterDropdownInput:focus-visible,
 .HeroParameterDropdownInput:focus-within {
+  outline-color: #20f092;
+  outline-width: 1px;
+}
+
+.HeroParameterFeedNumberInputSmall {
+  width: 25px;
+  height: 25px;
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 2px;
+  border: none;
+  background-color: rgba(32, 240, 146, 0.2);
+  border-bottom: 2px solid #20f092;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+.HeroParameterFeedNumberInputSmall:focus,
+.HeroParameterFeedNumberInputSmall:focus-visible,
+.HeroParameterFeedNumberInputSmall:focus-within {
+  outline-color: #20f092;
+  outline-width: 1px;
+}
+.HeroParameterFeedNumberInputMedium {
+  width: 40px;
+  height: 25px;
+  font-family: 'Inconsolata';
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 2px;
+  border: none;
+  background-color: rgba(32, 240, 146, 0.2);
+  border-bottom: 2px solid #20f092;
+  color: #ffffff;
+  caret-color: #ffffff;
+}
+.HeroParameterFeedNumberInputMedium:focus,
+.HeroParameterFeedNumberInputMedium:focus-visible,
+.HeroParameterFeedNumberInputMedium:focus-within {
   outline-color: #20f092;
   outline-width: 1px;
 }
