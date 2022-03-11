@@ -52,7 +52,7 @@ function Hero() {
   }
   const handleFundFeed = () => {
     containerModal.style.display = 'flex'
-    console.log('FUND FEED!!!')
+    // console.log('FUND FEED!!!')
   }
   //Helpers
   //useEffect to make sure SpotPrice
@@ -72,7 +72,7 @@ function Hero() {
   //useEffect to make sure feed parameters
   //valid entries before being able to submit.
   useEffect(() => {
-    console.log(parameterForm)
+    // console.log(parameterForm)
     if (
       parameterForm.fundAmount &&
       parameterForm.tipAmount &&
@@ -97,6 +97,7 @@ function Hero() {
     parameterForm.startDate,
   ])
 
+  //Grabbing Modal onload
   useEffect(() => {
     const modal = document.querySelector('.ContainerModal')
     setContainerModal(modal)
