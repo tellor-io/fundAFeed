@@ -1,13 +1,82 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 //Router
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 //Context
 import { GraphContext } from '../../contexts/Graph'
+import { SpotPriceContext } from '../../contexts/SpotPrice'
+import { UserContext } from '../../contexts/User'
+import { ErrorContext } from '../../contexts/Error'
+//Utils
+import { dateManipulator, convertToSeconds } from '../../utils/helpers'
+import { dateHelper } from '../../utils/time'
+import autopayABI from '../../utils/autopayABI.json'
+//Components
+import Loader from '../Loader'
 
-function SetupFeedModal({ parameterForm }) {
+function SetupFeedModal({
+  parameterForm,
+  tellorAddy,
+  autopayAddy,
+  loading,
+  setLoading,
+}) {
   //Context
+  const user = useContext(UserContext)
   const data = useContext(GraphContext)
-  console.log('Inside SetupFeed', data)
+  const spotPriceData = useContext(SpotPriceContext)
+  const error = useContext(ErrorContext)
+  //React-Router-Dom
+  const navigate = useNavigate()
+
+  //Handlers
+  const handleSetupFeed = (parameterForm) => {
+    let reward
+    let startTime
+    let interval
+    let window
+    let setupFeed
+
+    startTime = dateManipulator(parameterForm)
+    reward = user.currentUser.web3.utils.toWei(
+      `${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal}`
+    )
+    interval = convertToSeconds(
+      parameterForm.durationAmount,
+      parameterForm.durationType
+    )
+    window = convertToSeconds(
+      parameterForm.windowAmount,
+      parameterForm.windowType
+    )
+
+    try {
+      setupFeed = new user.currentUser.web3.eth.Contract(
+        autopayABI,
+        autopayAddy
+      )
+      setLoading(true)
+      setupFeed.methods
+        .setupDataFeed(
+          tellorAddy,
+          spotPriceData.queryId,
+          reward,
+          startTime,
+          interval,
+          window,
+          spotPriceData.queryData
+        )
+        .send({ from: user.currentUser.address })
+        .then((res) => {
+          console.log(res)
+        })
+    } catch (err) {
+      console.log(err)
+      error.setError(err.message)
+    }
+
+    console.log('SETUPFEED')
+    // navigate('/approve')
+  }
 
   return (
     <div className="VerifyModalContainer">
@@ -32,12 +101,22 @@ function SetupFeedModal({ parameterForm }) {
         </p>
         <p>
           Starting:{' '}
-          <span className="bolded">{`${parameterForm.startDay}/${parameterForm.startMonth}/${parameterForm.startYear} at ${parameterForm.startHourFirst}${parameterForm.startHourSecond}:${parameterForm.startMinuteFirst}${parameterForm.startMinuteSecond} ${parameterForm.timezone}`}</span>
+          <span className="bolded">{`${parameterForm.startDay}/${
+            parameterForm.startMonth
+          }/${parameterForm.startYear} at ${parameterForm.startHourFirst}${
+            parameterForm.startHourSecond
+          }:${parameterForm.startMinuteFirst}${
+            parameterForm.startMinuteSecond
+          }, my local time (${dateHelper().localTimezone})`}</span>
         </p>
       </div>
-      <Link to="/approve" className="VerifyModalButton">
+      <div
+        className="VerifyModalButton"
+        onClick={() => handleSetupFeed(parameterForm)}
+      >
         setup feed
-      </Link>
+      </div>
+      <Loader loading={loading} />
     </div>
   )
 }

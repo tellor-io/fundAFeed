@@ -4,13 +4,15 @@ import '../styles/Hero.css'
 //Context
 import { AppDataContext } from '../contexts/AppData'
 import { UserContext } from '../contexts/User'
+import SpotPrice from '../contexts/SpotPrice'
+import Error from '../contexts/Error'
 //Components
 import WalletConnect from './frontendBoilerplate/WalletConnect'
 import LinearIndeterminate from './LinearIndeterminate'
 import InfoBoxConnected from './InfoBoxConnected'
 import ContainerModal from './modals/ContainerModal'
 //Utils
-import { timezones, dateHelper } from '../utils/time'
+import { dateHelper } from '../utils/time'
 
 const initialDropdownValues = {
   asset: '',
@@ -29,12 +31,11 @@ const initialParameterValues = {
   startHourSecond: 0,
   startMinuteFirst: 0,
   startMinuteSecond: 0,
-  timezone: 'UTC',
   startDay: dateHelper().day + 1,
   startMonth: dateHelper().month,
   startYear: dateHelper().year,
 }
-console.log(dateHelper().localZone)
+
 function Hero() {
   //Component State
   const [dropdownForm, setDropdownForm] = useState(initialDropdownValues)
@@ -77,47 +78,16 @@ function Hero() {
       setInfoBoxDisabled(true)
     }
   }, [dropdownForm, data.assets, data.currencies])
-  //useEffect to make sure feed parameters
+  //useEffect to make sure feed parameters are
   //valid entries before being able to submit.
   useEffect(() => {
-    setFundFeedDisabled(false)
-    if (
-      parameterForm.fundAmount &&
-      parameterForm.tipAmountNumber &&
-      parameterForm.tipAmountDecimal &&
-      parameterForm.windowAmount &&
-      parameterForm.windowType &&
-      parameterForm.durationAmount &&
-      parameterForm.durationType &&
-      parameterForm.startHourFirst &&
-      parameterForm.startHourSecond &&
-      parameterForm.startMinuteFirst &&
-      parameterForm.startMinuteSecond &&
-      parameterForm.timezone &&
-      parameterForm.startDay &&
-      parameterForm.startMonth &&
-      parameterForm.startYear
-    ) {
+    if (!userData.currentUser) return
+    if (userData.currentUser && !infoBoxDisabled) {
       setFundFeedDisabled(false)
+    } else {
+      setFundFeedDisabled(true)
     }
-  }, [
-    parameterForm,
-    parameterForm.fundAmount,
-    parameterForm.tipAmountNumber,
-    parameterForm.tipAmountDecimal,
-    parameterForm.windowAmount,
-    parameterForm.windowType,
-    parameterForm.durationAmount,
-    parameterForm.durationType,
-    parameterForm.startHourFirst,
-    parameterForm.startHourSecond,
-    parameterForm.startMinuteFirst,
-    parameterForm.startMinuteSecond,
-    parameterForm.timezone,
-    parameterForm.startDay,
-    parameterForm.startMonth,
-    parameterForm.startYear,
-  ])
+  }, [userData.currentUser, infoBoxDisabled])
 
   //Grabbing Modal onload
   useEffect(() => {
@@ -305,22 +275,8 @@ function Hero() {
               name="startMinuteSecond"
               value={parameterForm.startMinuteSecond}
               onChange={handleParameterChange}
-            />
-            ,
-            <select
-              type="text"
-              className="HeroParameterDropdownInput"
-              name="timezone"
-              value={parameterForm.timezone}
-              onChange={handleParameterChange}
-            >
-              {timezones.map((tz) => (
-                <option key={tz.zone} value={tz.zone}>
-                  {tz.zone}
-                </option>
-              ))}
-            </select>{' '}
-            on{' '}
+            />{' '}
+            my local time, on{' '}
             <input
               type="number"
               min={1}
@@ -363,7 +319,14 @@ function Hero() {
           <p>verify and fund</p>
         </div>
       </div>
-      <ContainerModal modal={containerModal} parameterForm={parameterForm} />
+      <SpotPrice form={dropdownForm} infoBoxDisabled={infoBoxDisabled}>
+        <Error>
+          <ContainerModal
+            modal={containerModal}
+            parameterForm={parameterForm}
+          />
+        </Error>
+      </SpotPrice>
     </>
   )
 }

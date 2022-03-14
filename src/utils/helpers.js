@@ -1,10 +1,15 @@
 import minABI from './minimumABI.json'
+import { digitToMonth } from './time'
+
 //Globals
-const tellorAddressMainnet = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
-//const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
-const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
-const tellorAddressMumbai = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
-const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
+export const tellorAddressMainnet = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
+export const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
+export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
+export const tellorAddressMumbai = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
+export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
+export const autopayAddressPolygon =
+  '0x671d444D1fF68393d260D754c2303B9a4f51a8E8'
+export const autopayAddressMumbai = '0xf27C4d5551a9127D649E2b99f6Ffa9604B85973d'
 
 export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + '...' + addr.slice(-4)
@@ -111,4 +116,56 @@ export const sortDataByProperty = (prop, arr) => {
     }
   })
   return arr
+}
+
+export const dateManipulator = (formData) => {
+  //FOR THE FUTURE WHEN WE INCLUDE UTC TIMEZONE
+  //AND LOCAL MACHINE TIME
+  // const timezoneOffset = (new Date().getTimezoneOffset() / 60).toString()
+  // const UTCDate = Math.round(
+  //   new Date(
+  //     `${digitToMonth[formData.startMonth]} ${formData.startDay}, ${
+  //       formData.startYear
+  //     } ${formData.startHourFirst}${formData.startHourSecond}:${
+  //       formData.startMinuteFirst
+  //     }${formData.startMinuteSecond}:00-0${timezoneOffset}:00`
+  //   ).getTime() / 1000
+  // )
+
+  const localDate =
+    new Date(
+      `${digitToMonth[formData.startMonth]} ${formData.startDay}, ${
+        formData.startYear
+      } ${formData.startHourFirst}${formData.startHourSecond}:${
+        formData.startMinuteFirst
+      }${formData.startMinuteSecond}:00`
+    ).getTime() / 1000
+
+  return localDate
+}
+
+export const convertToSeconds = (amount, type) => {
+  let total
+  switch (type) {
+    case 'minute':
+      total = amount * 60
+      return total
+    case 'minutes':
+      total = amount * 60
+      return total
+    case 'hour':
+      total = amount * 60 * 60
+      return total
+    case 'hours':
+      total = amount * 60 * 60
+      return total
+    case 'day':
+      total = amount * 24 * 60 * 60
+      return total
+    case 'days':
+      total = amount * 24 * 60 * 60
+      return total
+    default:
+      return
+  }
 }
