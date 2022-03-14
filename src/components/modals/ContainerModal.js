@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import SetupFeedModal from './SetupFeedModal'
 import ApproveTokenModal from './ApproveTokenModal'
 import FundFeedModal from './FundFeedModal'
+import ConfirmedModal from './ConfirmedModal'
 //Contexts
 import { UserContext } from '../../contexts/User'
 import Graph from '../../contexts/Graph'
@@ -23,7 +24,8 @@ const clientMumbai = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-function ContainerModal({ modal }) {
+function ContainerModal({ modal, parameterForm }) {
+  console.log(parameterForm)
   //Component State
   const [apolloClient, setApolloClient] = useState(clientMumbai)
   //Contexts
@@ -56,17 +58,35 @@ function ContainerModal({ modal }) {
         <div className="ContainerModalCloseContainer">
           <Close onClick={closeModal} className="close" />
         </div>
-        <ApolloProvider client={apolloClient}>
-          <Graph>
-            <Router>
-              <Routes>
-                <Route exact path="/" element={<SetupFeedModal />} />
-                <Route path="/approve" element={<ApproveTokenModal />} />
-                <Route path="/fundfeed" element={<FundFeedModal />} />
-              </Routes>
-            </Router>
-          </Graph>
-        </ApolloProvider>
+        <div className="ContainerModalContentContainer">
+          <ApolloProvider client={apolloClient}>
+            <Graph>
+              <Router>
+                <Routes>
+                  <Route
+                    exact
+                    path="/"
+                    element={<SetupFeedModal parameterForm={parameterForm} />}
+                  />
+                  <Route
+                    path="/approve"
+                    element={
+                      <ApproveTokenModal parameterForm={parameterForm} />
+                    }
+                  />
+                  <Route
+                    path="/fundfeed"
+                    element={<FundFeedModal parameterForm={parameterForm} />}
+                  />
+                  <Route
+                    path="/confirmed"
+                    element={<ConfirmedModal parameterForm={parameterForm} />}
+                  />
+                </Routes>
+              </Router>
+            </Graph>
+          </ApolloProvider>
+        </div>
       </div>
     </div>
   )

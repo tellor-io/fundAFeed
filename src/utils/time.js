@@ -42,8 +42,6 @@ export const dateHelper = () => {
   const year = parseInt(dateArr[3])
   const localTime = dateArr[4]
   const utcRelation = dateArr[5]
-  const localZone =
-    dateArr[6].charAt(1) + dateArr[7].charAt(0) + dateArr[8].charAt(0)
   return {
     weekday: weekday,
     month: month,
@@ -51,7 +49,6 @@ export const dateHelper = () => {
     year: year,
     localTime: localTime,
     utcRelation: utcRelation,
-    localZone: localZone,
   }
 }
 

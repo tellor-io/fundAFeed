@@ -4,20 +4,21 @@ import { Link } from 'react-router-dom'
 //Context
 import { GraphContext } from '../../contexts/Graph'
 
-function SetupFeedModal({ parameterForm }) {
+function ConfirmedModal({ parameterForm }) {
   //Context
   const data = useContext(GraphContext)
-  console.log('Inside SetupFeed', data)
-
+  console.log('Inside ApproveToken', data)
   return (
     <div className="VerifyModalContainer">
-      <h1 className="VerifyModalTitle">Confirmation</h1>
+      <h1 className="VerifyModalTitle">Confirmed!</h1>
       <p className="VerifyModalMessage">
-        Confirming the funding of your feed will take three (3) separate
-        transactions.
+        Your price feed has been setup and funded.
       </p>
-      <h4 className="VerifyModalSubtitle">Verify your parameters:</h4>
-      <div className="VerifyParameters">
+      <Link to="/" className="CheckLivenessModalButton">
+        check liveness
+      </Link>
+      <h4 className="VerifyModalSubtitle">Your parameters:</h4>
+      <div className="VerifyParametersFund">
         <p>
           Tip Amount:{' '}
           <span className="bolded">{`${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal} TRB`}</span>
@@ -34,12 +35,19 @@ function SetupFeedModal({ parameterForm }) {
           Starting:{' '}
           <span className="bolded">{`${parameterForm.startDay}/${parameterForm.startMonth}/${parameterForm.startYear} at ${parameterForm.startHourFirst}${parameterForm.startHourSecond}:${parameterForm.startMinuteFirst}${parameterForm.startMinuteSecond} ${parameterForm.timezone}`}</span>
         </p>
+        <a className="VerifiedButton" href="/">
+          Verified: [Transaction ID]
+        </a>
       </div>
-      <Link to="/approve" className="VerifyModalButton">
-        setup feed
-      </Link>
+      <h4 className="VerifyModalSubtitle">Your funding amount:</h4>
+      <div className="VerifyFundParameter">
+        <p>{`${parameterForm.fundAmount} TRB`}</p>
+      </div>
+      <a className="VerifiedButton" href="/">
+        Verified: [Transaction ID]
+      </a>
     </div>
   )
 }
 
-export default SetupFeedModal
+export default ConfirmedModal

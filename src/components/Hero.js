@@ -29,12 +29,12 @@ const initialParameterValues = {
   startHourSecond: 0,
   startMinuteFirst: 0,
   startMinuteSecond: 0,
-  timezone: dateHelper().localZone,
+  timezone: 'UTC',
   startDay: dateHelper().day + 1,
   startMonth: dateHelper().month,
   startYear: dateHelper().year,
 }
-
+console.log(dateHelper().localZone)
 function Hero() {
   //Component State
   const [dropdownForm, setDropdownForm] = useState(initialDropdownValues)
@@ -80,29 +80,43 @@ function Hero() {
   //useEffect to make sure feed parameters
   //valid entries before being able to submit.
   useEffect(() => {
-    console.log(parameterForm)
+    setFundFeedDisabled(false)
     if (
       parameterForm.fundAmount &&
-      parameterForm.tipAmount &&
+      parameterForm.tipAmountNumber &&
+      parameterForm.tipAmountDecimal &&
       parameterForm.windowAmount &&
       parameterForm.windowType &&
       parameterForm.durationAmount &&
       parameterForm.durationType &&
-      parameterForm.startTime &&
-      parameterForm.startDate
+      parameterForm.startHourFirst &&
+      parameterForm.startHourSecond &&
+      parameterForm.startMinuteFirst &&
+      parameterForm.startMinuteSecond &&
+      parameterForm.timezone &&
+      parameterForm.startDay &&
+      parameterForm.startMonth &&
+      parameterForm.startYear
     ) {
       setFundFeedDisabled(false)
     }
   }, [
     parameterForm,
     parameterForm.fundAmount,
-    parameterForm.tipAmount,
+    parameterForm.tipAmountNumber,
+    parameterForm.tipAmountDecimal,
     parameterForm.windowAmount,
     parameterForm.windowType,
     parameterForm.durationAmount,
     parameterForm.durationType,
-    parameterForm.startTime,
-    parameterForm.startDate,
+    parameterForm.startHourFirst,
+    parameterForm.startHourSecond,
+    parameterForm.startMinuteFirst,
+    parameterForm.startMinuteSecond,
+    parameterForm.timezone,
+    parameterForm.startDay,
+    parameterForm.startMonth,
+    parameterForm.startYear,
   ])
 
   //Grabbing Modal onload
@@ -301,7 +315,9 @@ function Hero() {
               onChange={handleParameterChange}
             >
               {timezones.map((tz) => (
-                <option value={tz.zone}>{tz.zone}</option>
+                <option key={tz.zone} value={tz.zone}>
+                  {tz.zone}
+                </option>
               ))}
             </select>{' '}
             on{' '}
@@ -334,8 +350,6 @@ function Hero() {
               <option value="2023">2023</option>
               <option value="2024">2024</option>
               <option value="2025">2025</option>
-              <option value="2026">2026</option>
-              <option value="2027">2027</option>
             </select>
             (DD/MM/YYYY).
           </p>
@@ -346,10 +360,10 @@ function Hero() {
           }
           onClick={() => startModalFlow()}
         >
-          <p>fund your feed</p>
+          <p>verify and fund</p>
         </div>
       </div>
-      <ContainerModal modal={containerModal} />
+      <ContainerModal modal={containerModal} parameterForm={parameterForm} />
     </>
   )
 }
