@@ -1,0 +1,7 @@
+.InfoBoxConnected {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-weight: 300;
+  justify-content: space-evenly;
+}

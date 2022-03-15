@@ -13,10 +13,9 @@
 }
 .HeroContainer {
   width: 92%;
-  height: 500px;
+  height: 100%;
+  overflow: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid red;
+  flex-direction: column;
   background-color: #262626;
 }
