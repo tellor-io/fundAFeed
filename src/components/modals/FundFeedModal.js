@@ -30,7 +30,11 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
       setLoading(true)
       console.log(parameterForm.fundAmount)
       autopay.methods
-        .fundFeed(thisFeedId, spotPriceData.queryId, parameterForm.fundAmount)
+        .fundFeed(
+          thisFeedId,
+          spotPriceData.queryId,
+          user.currentUser.web3.utils.toWei(parameterForm.fundAmount)
+        )
         .send({ from: user.currentUser.address })
         .then((res) => {
           setLoading(false)
