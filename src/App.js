@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 //Components
 import Nav from './components/frontendBoilerplate/Nav'
 import Footer from './components/frontendBoilerplate/Footer'
@@ -7,6 +7,12 @@ import Hero from './components/Hero'
 import './App.css'
 
 function App() {
+  useEffect(() => {
+    if (window.location.pathname !== '/') {
+      window.location.assign('/')
+    }
+  }, [])
+
   return (
     <div className="App">
       <Nav />

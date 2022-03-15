@@ -15,7 +15,11 @@ function InfoBoxConnected() {
             user.currentUser.network.charAt(0).toUpperCase() +
             user.currentUser.network.slice(1)
           }`}</p>
-          <p>{`Wallet Balance: ${user.currentUser.balances.trb} TRB`}</p>
+          <p>
+            {user.currentUser.balances && user.currentUser.balances.trb
+              ? `Wallet Balance: ${user.currentUser.balances.trb} TRB`
+              : 'Current chain not TRB supported'}
+          </p>
         </div>
       )}
     </>

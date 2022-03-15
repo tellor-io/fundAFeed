@@ -1,9 +1,8 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext } from 'react'
 //Router
 import { useNavigate } from 'react-router-dom'
 //Context
-import { GraphContext } from '../../contexts/Graph'
-import { SpotPriceContext } from '../../contexts/SpotPrice'
+import { SpotPriceContext, abiCoder } from '../../contexts/SpotPrice'
 import { UserContext } from '../../contexts/User'
 import { ErrorContext } from '../../contexts/Error'
 //Utils
@@ -12,6 +11,8 @@ import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
 //Components
 import Loader from '../Loader'
+//Web3
+import { ethers } from 'ethers'
 
 function SetupFeedModal({
   parameterForm,
@@ -19,10 +20,11 @@ function SetupFeedModal({
   autopayAddy,
   loading,
   setLoading,
+  setSetupFeedTxnHash,
+  setThisFeedId,
 }) {
   //Context
   const user = useContext(UserContext)
-  const data = useContext(GraphContext)
   const spotPriceData = useContext(SpotPriceContext)
   const error = useContext(ErrorContext)
   //React-Router-Dom
@@ -30,11 +32,7 @@ function SetupFeedModal({
 
   //Handlers
   const handleSetupFeed = (parameterForm) => {
-    let reward
-    let startTime
-    let interval
-    let window
-    let setupFeed
+    let reward, startTime, interval, window, autopay, encodedFeed, feedId
 
     startTime = dateManipulator(parameterForm)
     reward = user.currentUser.web3.utils.toWei(
@@ -48,14 +46,24 @@ function SetupFeedModal({
       parameterForm.windowAmount,
       parameterForm.windowType
     )
+    encodedFeed = abiCoder.encode(
+      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256'],
+      [
+        spotPriceData.queryId.toString(),
+        tellorAddy.toString(),
+        reward,
+        startTime,
+        interval,
+        window,
+      ]
+    )
+    feedId = ethers.utils.keccak256(encodedFeed)
+    setThisFeedId(feedId)
 
     try {
-      setupFeed = new user.currentUser.web3.eth.Contract(
-        autopayABI,
-        autopayAddy
-      )
+      autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
-      setupFeed.methods
+      autopay.methods
         .setupDataFeed(
           tellorAddy,
           spotPriceData.queryId,
@@ -67,15 +75,18 @@ function SetupFeedModal({
         )
         .send({ from: user.currentUser.address })
         .then((res) => {
-          console.log(res)
+          setSetupFeedTxnHash(res.transactionHash)
+          setLoading(false)
+          navigate('/approve')
+        })
+        .catch((err) => {
+          error.setError(err.message)
+          setLoading(false)
         })
     } catch (err) {
       console.log(err)
       error.setError(err.message)
     }
-
-    console.log('SETUPFEED')
-    // navigate('/approve')
   }
 
   return (

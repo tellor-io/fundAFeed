@@ -1,14 +1,14 @@
 import React, { createContext, useState, useEffect } from 'react'
 import { ethers } from 'ethers'
 
+//Globals
 export const SpotPriceContext = createContext()
+export const abiCoder = new ethers.utils.AbiCoder()
 
 function SpotPrice({ children, form, infoBoxDisabled }) {
   //Component State
   const [queryId, setQueryId] = useState(null)
   const [queryData, setQueryData] = useState(null)
-  //Globals
-  const abiCoder = new ethers.utils.AbiCoder()
 
   useEffect(() => {
     let dataArgs

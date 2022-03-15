@@ -22,7 +22,6 @@ import {
   autopayAddressPolygon,
   autopayAddressMumbai,
 } from '../../utils/helpers'
-import Loader from '../Loader'
 
 //The Graph
 const clientPolygon = new ApolloClient({
@@ -40,6 +39,8 @@ function ContainerModal({ modal, parameterForm }) {
   const [tellorAddress, setTellorAddress] = useState(null)
   const [autopayAddress, setAutopayAddress] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [setupFeedTxnHash, setSetupFeedTxnHash] = useState(null)
+  const [thisFeedId, setThisFeedId] = useState(null)
   //Contexts
   const user = useContext(UserContext)
   const error = useContext(ErrorContext)
@@ -47,6 +48,9 @@ function ContainerModal({ modal, parameterForm }) {
   //Helpers
   const closeModal = () => {
     modal.style.display = 'none'
+    if (tellorAddress && autopayAddress) {
+      error.setError(null)
+    }
   }
 
   //useEffect to set ApolloClient
@@ -64,8 +68,8 @@ function ContainerModal({ modal, parameterForm }) {
         return
     }
   }, [user])
-
   //useEffect for setting tellorAddress
+  //and autopay address
   useEffect(() => {
     if (!user || !user.currentUser) return
     if (user.currentUser.chainId === 80001) {
@@ -120,26 +124,45 @@ function ContainerModal({ modal, parameterForm }) {
                       element={
                         <SetupFeedModal
                           parameterForm={parameterForm}
-                          tellorAddress={tellorAddress}
-                          autopayAddress={autopayAddress}
+                          tellorAddy={tellorAddress}
+                          autopayAddy={autopayAddress}
                           loading={loading}
                           setLoading={setLoading}
+                          setSetupFeedTxnHash={setSetupFeedTxnHash}
+                          setThisFeedId={setThisFeedId}
                         />
                       }
                     />
                     <Route
                       path="/approve"
                       element={
-                        <ApproveTokenModal parameterForm={parameterForm} />
+                        <ApproveTokenModal
+                          parameterForm={parameterForm}
+                          tellorAddy={tellorAddress}
+                          autopayAddy={autopayAddress}
+                          setupFeedTxnHash={setupFeedTxnHash}
+                          thisFeedId={thisFeedId}
+                        />
                       }
                     />
                     <Route
                       path="/fundfeed"
-                      element={<FundFeedModal parameterForm={parameterForm} />}
+                      element={
+                        <FundFeedModal
+                          parameterForm={parameterForm}
+                          autopayAddy={autopayAddress}
+                          thisFeedId={thisFeedId}
+                        />
+                      }
                     />
                     <Route
                       path="/confirmed"
-                      element={<ConfirmedModal parameterForm={parameterForm} />}
+                      element={
+                        <ConfirmedModal
+                          parameterForm={parameterForm}
+                          closeModal={closeModal}
+                        />
+                      }
                     />
                   </Routes>
                 </Router>

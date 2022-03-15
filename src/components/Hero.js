@@ -43,6 +43,7 @@ function Hero() {
   const [infoBoxDisabled, setInfoBoxDisabled] = useState(true)
   const [fundFeedDisabled, setFundFeedDisabled] = useState(true)
   const [containerModal, setContainerModal] = useState(null)
+  const [correctNetwork, setCorrectNetwork] = useState(true)
   //Context
   const data = useContext(AppDataContext)
   const userData = useContext(UserContext)
@@ -64,6 +65,27 @@ function Hero() {
     containerModal.style.display = 'flex'
   }
   //Helpers
+  //useEffect to make sure feed parameters are
+  //valid entries before being able to submit.
+  useEffect(() => {
+    if (!userData.currentUser) return
+    if (userData.currentUser && !infoBoxDisabled && correctNetwork) {
+      setFundFeedDisabled(false)
+    } else {
+      setFundFeedDisabled(true)
+    }
+  }, [userData.currentUser, infoBoxDisabled, correctNetwork])
+  //useEffect to make sure user is on the correct
+  //chain to be able to set up a feed
+  useEffect(() => {
+    if (!userData.currentUser) return
+    if (!userData.currentUser.balances) {
+      setCorrectNetwork(false)
+      setFundFeedDisabled(true)
+    } else {
+      setCorrectNetwork(true)
+    }
+  }, [userData.currentUser])
   //useEffect to make sure SpotPrice
   //asset and currency are valid entries
   //before connecting wallet to page.
@@ -78,16 +100,6 @@ function Hero() {
       setInfoBoxDisabled(true)
     }
   }, [dropdownForm, data.assets, data.currencies])
-  //useEffect to make sure feed parameters are
-  //valid entries before being able to submit.
-  useEffect(() => {
-    if (!userData.currentUser) return
-    if (userData.currentUser && !infoBoxDisabled) {
-      setFundFeedDisabled(false)
-    } else {
-      setFundFeedDisabled(true)
-    }
-  }, [userData.currentUser, infoBoxDisabled])
 
   //Grabbing Modal onload
   useEffect(() => {
@@ -166,7 +178,7 @@ function Hero() {
         </div>
         <div
           className={
-            userData.currentUser && !infoBoxDisabled
+            userData.currentUser && !infoBoxDisabled && correctNetwork
               ? 'HeroSetParameters'
               : 'HeroSetParameters disabled'
           }

@@ -27,6 +27,7 @@ function Graph({ children }) {
   const GraphContextObj = {
     graphData: graphData,
   }
+  console.log('graphData', graphData)
   return (
     <GraphContext.Provider value={GraphContextObj}>
       {children}

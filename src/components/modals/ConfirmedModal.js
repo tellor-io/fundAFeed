@@ -1,22 +1,47 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 //Router
-import { Link } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 //Context
-import { GraphContext } from '../../contexts/Graph'
+import { UserContext } from '../../contexts/User'
+//Utils
+import { dateHelper } from '../../utils/time'
 
-function ConfirmedModal({ parameterForm }) {
+function ConfirmedModal({ parameterForm, closeModal }) {
+  //Component
+  const [fundFeedTxnURL, setFundFeedTxnURL] = useState(null)
   //Context
-  const data = useContext(GraphContext)
-  console.log('Inside ApproveToken', data)
+  const user = useContext(UserContext)
+  //Router
+  const { state } = useLocation()
+  console.log(state)
+
+  useEffect(() => {
+    if (!user || !user.currentUser) return
+    if (!state.fundFeedTxnHash) return
+    if (user.currentUser.network === 'matic') {
+      setFundFeedTxnURL(`https://polygonscan.com/tx/${state.fundFeedTxnHash}`)
+    } else if (user.currentUser.network === 'mumbai') {
+      setFundFeedTxnURL(
+        `https://mumbai.polygonscan.com/tx/${state.fundFeedTxnHash}`
+      )
+    }
+  }, [user, state])
+
   return (
     <div className="VerifyModalContainer">
       <h1 className="VerifyModalTitle">Confirmed!</h1>
       <p className="VerifyModalMessage">
         Your price feed has been setup and funded.
       </p>
-      <Link to="/" className="CheckLivenessModalButton">
+      <a
+        href="https://tellor.io/"
+        target="_blank"
+        rel="noreferrer noopener"
+        className="CheckLivenessModalButton"
+        onClick={() => closeModal()}
+      >
         check liveness
-      </Link>
+      </a>
       <h4 className="VerifyModalSubtitle">Your parameters:</h4>
       <div className="VerifyParametersFund">
         <p>
@@ -33,18 +58,34 @@ function ConfirmedModal({ parameterForm }) {
         </p>
         <p>
           Starting:{' '}
-          <span className="bolded">{`${parameterForm.startDay}/${parameterForm.startMonth}/${parameterForm.startYear} at ${parameterForm.startHourFirst}${parameterForm.startHourSecond}:${parameterForm.startMinuteFirst}${parameterForm.startMinuteSecond} ${parameterForm.timezone}`}</span>
+          <span className="bolded">{`${parameterForm.startDay}/${
+            parameterForm.startMonth
+          }/${parameterForm.startYear} at ${parameterForm.startHourFirst}${
+            parameterForm.startHourSecond
+          }:${parameterForm.startMinuteFirst}${
+            parameterForm.startMinuteSecond
+          }, my local time (${dateHelper().localTimezone})`}</span>
         </p>
-        <a className="VerifiedButton" href="/">
-          Verified: [Transaction ID]
+        <a
+          className="VerifiedButton"
+          href={state && state.setupFeedTxnUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Verified: View on PolygonScan
         </a>
       </div>
       <h4 className="VerifyModalSubtitle">Your funding amount:</h4>
       <div className="VerifyFundParameter">
         <p>{`${parameterForm.fundAmount} TRB`}</p>
       </div>
-      <a className="VerifiedButton" href="/">
-        Verified: [Transaction ID]
+      <a
+        className="VerifiedButton"
+        href={fundFeedTxnURL && fundFeedTxnURL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Verified: View on PolygonScan
       </a>
     </div>
   )
