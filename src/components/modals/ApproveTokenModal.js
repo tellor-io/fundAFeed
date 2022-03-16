@@ -95,7 +95,7 @@ function ApproveTokenModal({
       trbToken.methods
         .approve(
           autopayAddy,
-          user.currentUser.web3.utils.toWei(parameterForm.fundAmount)
+          user.currentUser.web3.utils.toWei(parameterForm.fundAmount.toString())
         )
         .send({ from: user.currentUser.address })
         .then((res) => {
