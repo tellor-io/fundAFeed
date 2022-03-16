@@ -5,8 +5,7 @@
   justify-content: flex-start;
   align-items: center;
   background-color: #1c1c1c;
-  position: absolute;
-  bottom: 0;
+  margin-top: 80px;
 }
 .FooterText {
   color: #777777;
