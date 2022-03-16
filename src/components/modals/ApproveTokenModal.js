@@ -84,7 +84,7 @@ function ApproveTokenModal({
 
   //Helpers
   const handleApprove = () => {
-    // let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
+    let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
     setOfficialDataFeed(false)
     try {
       const trbToken = new user.currentUser.web3.eth.Contract(
@@ -93,7 +93,10 @@ function ApproveTokenModal({
       )
 
       trbToken.methods
-        .approve(autopayAddy, parameterForm.fundAmount)
+        .approve(
+          autopayAddy,
+          user.currentUser.web3.utils.toWei(parameterForm.fundAmount)
+        )
         .send({ from: user.currentUser.address })
         .then((res) => {
           setOfficialDataFeed(false)
