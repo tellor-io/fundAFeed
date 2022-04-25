@@ -93,7 +93,8 @@ function Hero() {
     if (!data.assets || !data.currencies) return
     if (
       data.assets.includes(dropdownForm.asset) &&
-      data.currencies.includes(dropdownForm.currency)
+      data.currencies.includes(dropdownForm.currency) &&
+      dropdownForm.asset !== ''
     ) {
       setInfoBoxDisabled(false)
     } else {
@@ -124,7 +125,8 @@ function Hero() {
             SpotPrice Query ID
           </a>
           ? To fund your feed, select your SpotPrice asset and currency, connect
-          your wallet, and then set your funding parameters.
+          your wallet to Polygon or Mumbai chains, and then set your funding
+          parameters.
         </p>
         {data.assets ? (
           <div className="HeroDropdowns">

@@ -84,7 +84,7 @@ function ApproveTokenModal({
 
   //Helpers
   const handleApprove = () => {
-    let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
+    //let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
     setOfficialDataFeed(false)
     try {
       const trbToken = new user.currentUser.web3.eth.Contract(
