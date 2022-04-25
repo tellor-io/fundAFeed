@@ -124,7 +124,8 @@ function Hero() {
             SpotPrice Query ID
           </a>
           ? To fund your feed, select your SpotPrice asset and currency, connect
-          your wallet, and then set your funding parameters.
+          your wallet to Polygon or Mumbai chains, and then set your funding
+          parameters.
         </p>
         {data.assets ? (
           <div className="HeroDropdowns">
