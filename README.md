@@ -30,7 +30,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/tellor-io/frontendBoilerplate">
+  <a href="https://github.com/tellor-io/fundAFeed">
     <img src="/public/Tellor_TRB.svg" alt="Logo" width="80" height="80">
   </a>
 
@@ -40,9 +40,9 @@
     This project is a GitHub template used to quickly start up Tellor Frontends. To add more features so all Tellor web3 apps can share the functionality, click on 'Request Feature' below and be sure to detail your specs. 
     <br />
     <br />
-    <a href="https://github.com/tellor-io/frontendBoilerplate/issues">Report Bug</a>
+    <a href="https://github.com/tellor-io/fundAFeed/issues">Report Bug</a>
     ·
-    <a href="https://github.com/tellor-io/frontendBoilerplate/issues">Request Feature</a>
+    <a href="https://github.com/tellor-io/fundAFeed/issues">Request Feature</a>
   </p>
 </p>
 
@@ -79,7 +79,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][screenshot]](https://github.com/tellor-io/frontendBoilerplate)
+[![Product Name Screen Shot][screenshot]](https://github.com/tellor-io/fundAFeed)
 
 The idea behind the frontend boilerplate is to cut down development time, by creating a reusable module that contains helpful, necessary and reoccurring web3 frontend capabilities. This includes, but is not limited to: 
 
@@ -122,7 +122,7 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo in your preferred directory
    ```sh
-   git clone https://github.com/tellor-io/frontendBoilerplate.git
+   git clone https://github.com/tellor-io/fundAFeed.git
    ```
 2. Install NPM packages
    ```sh
@@ -156,7 +156,7 @@ Use this project to quickly spin up new Tellor frontends! Below are some example
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/tellor-io/frontendBoilerplate/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/tellor-io/fundAFeed/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -192,14 +192,14 @@ Tellor.io
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/tellor-io/frontendBoilerplate.svg?style=for-the-badge
-[contributors-url]: https://github.com/tellor-io/frontendBoilerplate/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/tellor-io/frontendBoilerplate.svg?style=for-the-badge
-[forks-url]: https://github.com/tellor-io/frontendBoilerplate/network/members
-[stars-shield]: https://img.shields.io/github/stars/tellor-io/frontendBoilerplate.svg?style=for-the-badge
-[stars-url]: https://github.com/tellor-io/frontendBoilerplate/stargazers
-[issues-shield]: https://img.shields.io/github/issues/tellor-io/frontendBoilerplate.svg?style=for-the-badge
-[issues-url]: https://github.com/tellor-io/frontendBoilerplate/issues
-[license-shield]: https://img.shields.io/github/license/tellor-io/frontendBoilerplate.svg?style=for-the-badge
-[license-url]: https://github.com/tellor-io/frontendBoilerplate/blob/main/LICENSE.txt
-[screenshot]: https://user-images.githubusercontent.com/21370350/165222959-8581c860-1bf0-425e-aa05-500c530a2567.png
+[contributors-shield]: https://img.shields.io/github/contributors/tellor-io/fundAFeed.svg?style=for-the-badge
+[contributors-url]: https://github.com/tellor-io/fundAFeed/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/tellor-io/fundAFeed.svg?style=for-the-badge
+[forks-url]: https://github.com/tellor-io/fundAFeed/network/members
+[stars-shield]: https://img.shields.io/github/stars/tellor-io/fundAFeed.svg?style=for-the-badge
+[stars-url]: https://github.com/tellor-io/fundAFeed/stargazers
+[issues-shield]: https://img.shields.io/github/issues/tellor-io/fundAFeed.svg?style=for-the-badge
+[issues-url]: https://github.com/tellor-io/fundAFeed/issues
+[license-shield]: https://img.shields.io/github/license/tellor-io/fundAFeed.svg?style=for-the-badge
+[license-url]: https://github.com/tellor-io/fundAFeed/blob/main/LICENSE.txt
+[screenshot]: https://user-images.githubusercontent.com/21370350/165884467-2fbc0346-3282-4837-aa98-90ff5307aea0.png
