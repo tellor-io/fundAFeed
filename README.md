@@ -37,7 +37,7 @@
   <h2 align="center">Tellor Fund A Feed</h2>
 
   <p align="center">
-    This project allows users to interact with the Tellor Autopay contract, so that data users can more easily set up a consistent stream of incentives/rewards for reporters who consistenly provide the desired data. 
+    This project allows users to interact with the Tellor Autopay contract, so that data users can more easily set up a consistent stream of incentives/rewards for reporters who consistently provide the desired data. 
     <br />
     <br />
     <a href="https://github.com/tellor-io/fundAFeed/issues">Report Bug</a>
