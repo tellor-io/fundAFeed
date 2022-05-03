@@ -29,7 +29,7 @@ const clientPolygon = new ApolloClient({
   cache: new InMemoryCache(),
 })
 const clientMumbai = new ApolloClient({
-  uri: 'ttps://api.thegraph.com/subgraphs/name/tellor-io/tellorautopaymumbaihgraph',
+  uri: 'https://api.thegraph.com/subgraphs/name/tellor-io/tellorautopaymumbaihgraph',
   cache: new InMemoryCache(),
 })
 
