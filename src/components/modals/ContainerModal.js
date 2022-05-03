@@ -25,11 +25,11 @@ import {
 
 //The Graph
 const clientPolygon = new ApolloClient({
-  uri: 'https://api.thegraph.com/subgraphs/name/joshuasamaniego/autopay-matic',
+  uri: 'https://api.thegraph.com/subgraphs/name/tellor-io/tellorautopaymatichgraph',
   cache: new InMemoryCache(),
 })
 const clientMumbai = new ApolloClient({
-  uri: 'https://api.thegraph.com/subgraphs/name/joshuasamaniego/autopay-mumbai',
+  uri: 'ttps://api.thegraph.com/subgraphs/name/tellor-io/tellorautopaymumbaihgraph',
   cache: new InMemoryCache(),
 })
 
