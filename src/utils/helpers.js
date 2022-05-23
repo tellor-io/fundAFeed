@@ -8,8 +8,8 @@ export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
 export const tellorAddressMumbai = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
 export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
 export const autopayAddressPolygon =
-  '0x671d444D1fF68393d260D754c2303B9a4f51a8E8'
-export const autopayAddressMumbai = '0xf27C4d5551a9127D649E2b99f6Ffa9604B85973d'
+  '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
+export const autopayAddressMumbai = '00xD789488E5ee48Ef8b0719843672Bc04c213b648c'
 
 export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + '...' + addr.slice(-4)
