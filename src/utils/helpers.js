@@ -9,7 +9,7 @@ export const tellorAddressMumbai = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
 export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
 export const autopayAddressPolygon =
   '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
-export const autopayAddressMumbai = '00xD789488E5ee48Ef8b0719843672Bc04c213b648c'
+export const autopayAddressMumbai = '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
 
 export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + '...' + addr.slice(-4)
