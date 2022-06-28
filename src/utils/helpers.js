@@ -5,11 +5,11 @@ import { digitToMonth } from './time'
 export const tellorAddressMainnet = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
-export const tellorAddressMumbai = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
+export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
 export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
 export const autopayAddressPolygon =
   '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
-export const autopayAddressMumbai = '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
+export const autopayAddressMumbai = '0x7B49420008BcA14782F2700547764AdAdD54F813'
 
 export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + '...' + addr.slice(-4)
