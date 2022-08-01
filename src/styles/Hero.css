@@ -1,216 +1,232 @@
-.HeroInnerContainer {
-  margin: 0px 100px;
-}
-.HeroHeader {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 51px;
-  line-height: 60px;
-  margin-bottom: 20px;
-}
-.HeroMainText {
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 300;
-  margin-bottom: 30px;
-  padding-right: 200px;
-}
-.HeroMainText > a {
-  color: #20f092;
-  text-decoration: none;
-}
-.HeroDropdowns > label {
-  font-size: 18px;
-  line-height: 28px;
-  font-weight: 300;
-}
-#assetInput {
-  margin-right: 16px;
-}
-.dropdown {
-  width: 100px;
-  height: 22px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  padding-left: 5px;
-  padding-top: 2px;
-  border: none;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
-}
-.dropdown::placeholder {
-  color: #ffffff;
-  opacity: 0.6;
-}
-.dropdown:focus,
-.dropdown:focus-visible,
-.dropdown:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
-}
-/* */
-.HeroInfoBox {
-  width: 418px;
-  height: 124px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #ffffff;
-  margin: 44px 0px 30px 0px;
-  user-select: none;
-}
-.HeroInfoBoxConnected {
-  width: 418px;
-  height: 124px;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: 2px solid #ffffff;
-  margin: 44px 0px 30px 0px;
-  padding-left: 20px;
-  user-select: none;
-}
-/* */
-.HeroSetParameters {
-  padding-right: 200px;
-  margin-bottom: 30px;
-  user-select: none;
-}
-.HeroSetParameters > p {
-  font-weight: 300;
-  font-size: 18px;
-}
-.HeroParameterFeedNumberInputLarge {
-  width: 50px;
-  height: 25px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  padding: 0;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 2px;
-  margin-bottom: 3px;
-  border: none;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
-}
-.HeroParameterFeedNumberInputLarge:focus,
-.HeroParameterFeedNumberInputLarge:focus-visible,
-.HeroParameterFeedNumberInputLarge:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
-}
-.HeroParameterNumberInput {
-  width: 25px;
-  height: 25px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  padding: 0;
-  padding-left: 5px;
-  margin-right: 2px;
-  margin-bottom: 3px;
-  border: none;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
-}
-.HeroParameterNumberInput::placeholder {
-  color: #ffffff;
-  opacity: 0.6;
-}
-.HeroParameterNumberInput:focus,
-.HeroParameterNumberInput:focus-visible,
-.HeroParameterNumberInput:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
-}
-.HeroParameterDropdownInput {
-  width: 90px;
-  height: 27px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  border: none;
-  margin-bottom: 5px;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
-}
-.HeroParameterDropdownInput::placeholder {
-  color: #ffffff;
-  opacity: 0.6;
-}
-.HeroParameterDropdownInput:focus,
-.HeroParameterDropdownInput:focus-visible,
-.HeroParameterDropdownInput:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
+@media (max-width: 786px) {
+  
 }
 
-.HeroParameterFeedNumberInputSmall {
-  width: 25px;
-  height: 25px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  padding: 0;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 2px;
-  border: none;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
+@media (min-width: 786px) {
+  .HeroInnerContainer {
+    background-color: #141414;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2em;
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+  }
+  .HeroHeader {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 51px;
+    line-height: 60px;
+    margin-bottom: 20px;
+  }
+  .HeroMainText {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+  .HeroMainText > a {
+    color: #20f092;
+    text-decoration: none;
+  }
+  .HeroDropdowns > label {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+  }
+  #assetInput {
+    margin-right: 16px;
+  }
+  .dropdown {
+    width: 100px;
+    height: 22px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding-left: 5px;
+    padding-top: 2px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .dropdown::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+  }
+  .dropdown:focus,
+  .dropdown:focus-visible,
+  .dropdown:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  /* */
+  .HeroInfoBox {
+    width: 418px;
+    height: 124px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #ffffff;
+    margin: 44px 0px 30px 0px;
+    user-select: none;
+  }
+  .HeroInfoBoxConnected {
+    width: 418px;
+    height: 124px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border: 2px solid #ffffff;
+    margin: 44px 0px 30px 0px;
+    padding-left: 20px;
+    user-select: none;
+  }
+  /* */
+  .HeroSetParameters {
+    padding-right: 200px;
+    margin-bottom: 30px;
+    user-select: none;
+  }
+  .HeroSetParameters > p {
+    font-weight: 300;
+    font-size: 18px;
+  }
+  .HeroParameterFeedNumberInputLarge {
+    width: 50px;
+    height: 25px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 2px;
+    margin-bottom: 3px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .HeroParameterFeedNumberInputLarge:focus,
+  .HeroParameterFeedNumberInputLarge:focus-visible,
+  .HeroParameterFeedNumberInputLarge:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  .HeroParameterNumberInput {
+    width: 25px;
+    height: 25px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    padding-left: 5px;
+    margin-right: 2px;
+    margin-bottom: 3px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .HeroParameterNumberInput::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+  }
+  .HeroParameterNumberInput:focus,
+  .HeroParameterNumberInput:focus-visible,
+  .HeroParameterNumberInput:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  .HeroParameterDropdownInput {
+    width: 90px;
+    height: 27px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    border: none;
+    margin-bottom: 5px;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .HeroParameterDropdownInput::placeholder {
+    color: #ffffff;
+    opacity: 0.6;
+  }
+  .HeroParameterDropdownInput:focus,
+  .HeroParameterDropdownInput:focus-visible,
+  .HeroParameterDropdownInput:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  
+  .HeroParameterFeedNumberInputSmall {
+    width: 25px;
+    height: 25px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 2px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .HeroParameterFeedNumberInputSmall:focus,
+  .HeroParameterFeedNumberInputSmall:focus-visible,
+  .HeroParameterFeedNumberInputSmall:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  .HeroParameterFeedNumberInputMedium {
+    width: 40px;
+    height: 25px;
+    font-family: 'Inconsolata';
+    font-size: 18px;
+    font-weight: 300;
+    padding: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-right: 2px;
+    border: none;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    color: #ffffff;
+    caret-color: #ffffff;
+  }
+  .HeroParameterFeedNumberInputMedium:focus,
+  .HeroParameterFeedNumberInputMedium:focus-visible,
+  .HeroParameterFeedNumberInputMedium:focus-within {
+    outline-color: #20f092;
+    outline-width: 1px;
+  }
+  /* */
+  .HeroFundFeed {
+    width: fit-content;
+    height: 38px;
+    padding: 0px 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #20f092;
+    color: #20f092;
+    user-select: none;
+  }
+  .HeroFundFeed:hover {
+    cursor: pointer;
+  }
+  
 }
-.HeroParameterFeedNumberInputSmall:focus,
-.HeroParameterFeedNumberInputSmall:focus-visible,
-.HeroParameterFeedNumberInputSmall:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
-}
-.HeroParameterFeedNumberInputMedium {
-  width: 40px;
-  height: 25px;
-  font-family: 'Inconsolata';
-  font-size: 18px;
-  font-weight: 300;
-  padding: 0;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-right: 2px;
-  border: none;
-  background-color: rgba(32, 240, 146, 0.2);
-  border-bottom: 2px solid #20f092;
-  color: #ffffff;
-  caret-color: #ffffff;
-}
-.HeroParameterFeedNumberInputMedium:focus,
-.HeroParameterFeedNumberInputMedium:focus-visible,
-.HeroParameterFeedNumberInputMedium:focus-within {
-  outline-color: #20f092;
-  outline-width: 1px;
-}
-/* */
-.HeroFundFeed {
-  width: fit-content;
-  height: 38px;
-  padding: 0px 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 2px solid #20f092;
-  color: #20f092;
-  user-select: none;
-}
-.HeroFundFeed:hover {
-  cursor: pointer;
-}
+

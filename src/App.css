@@ -1,20 +1,28 @@
-.App {
-  width: 100%;
-  max-height: 100%;
-  min-height: 100vh;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #262626;
-  color: #ffffff;
-  font-family: 'Inconsolata', monospace;
+@media (max-width: 786px) {
+
 }
-.HeroContainer {
-  width: 92%;
-  height: 100%;
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  background-color: #262626;
+
+@media (min-width: 786px) {
+  .App {
+    width: 100%;
+    min-height: 100vh;
+    height: 100vh;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #262626;
+    color: #ffffff;
+    font-family: 'Inconsolata', monospace;
+  }
+
+  .HeroContainer {
+    width: 92%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -1,0 +1,31 @@
+@media (max-width: 786px) {
+  
+}
+
+@media (min-width: 786px) {
+  .wrapper{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2em;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+  }
+
+  .title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 51px;
+    line-height: 60px;
+    margin-bottom: 20px;
+  }
+
+  .mainText{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+}
