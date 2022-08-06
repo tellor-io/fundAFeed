@@ -1,10 +1,32 @@
 /* Media Queries */
-@media (max-width: 786px) {
+@media screen and (max-width: 786px) {
   .Footer {
     justify-content: center;
+    height: 200px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: #1c1c1c;
+    width: 100vw;
   }
   .FooterText {
     margin-left: 0;
+  }
+  .FooterNav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4em;
+    width: 90%;
+  }
+  
+  a{
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:hover{
+    color: #20f092;
   }
 }
 

@@ -1,5 +1,15 @@
-@media (max-width: 786px) {
-
+@media screen and (max-width: 786px) {
+  .App{
+    width: 100vw;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #262626;
+    color: #ffffff;
+    overflow-y: scroll;
+  }
 }
 
 @media (min-width: 786px) {
