@@ -8,12 +8,33 @@
     font-size: 32px;
     line-height: 60px;
     margin-bottom: 20px;
+
   }
   .mainText{
     font-size: 22px;
     line-height: 28px;
     font-weight: 300;
     margin-bottom: 30px;
+  }
+  .infoButtons {
+    min-width: 200px;
+    height: 48px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 1em;
+    padding: 0px 10px;
+    border: 2px solid #20f092;
+    background-color: #242424;
+    cursor: pointer;
+    color: #20f092;
+    margin-top: 1em;
+  }
+
+  .infoButtons:hover {
+    background-color: #20f092;
+    color: #242424;
   }
 }
 
@@ -32,9 +53,11 @@
 
   .title{
     font-family: 'Montserrat', sans-serif;
-    font-size: 51px;
+    font-size: 40px;
     line-height: 60px;
     margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
   }
 
   .mainText{
@@ -42,5 +65,32 @@
     line-height: 28px;
     font-weight: 300;
     margin-bottom: 30px;
+  }
+
+  .infoContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .infoButtons {
+    min-width: 200px;
+    height: 48px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 1em;
+    padding: 0px 10px;
+    border: 2px solid #20f092;
+    background-color: #242424;
+    cursor: pointer;
+    color: #20f092;
+  }
+
+  .infoButtons:hover {
+    background-color: #20f092;
+    color: #242424;
   }
 }

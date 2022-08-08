@@ -3,20 +3,20 @@ import "../../styles/frontendBoilerplate/Footer.css"
 
 const links = [
   {
-    title: 'Support',
-    link: ''
+    title: 'Connect',
+    link: 'https://linktr.ee/Tellor'
   },  
   {
     title: 'Docs',
-    link: ''
+    link: 'https://tellor.io/docs/'
   },  
   {
     title: 'Discord',
-    link: ''
+    link: 'https://discord.com/invite/kaMenz4ZVw'
   },  
   {
     title: 'Contact',
-    link: ''
+    link: 'https://twitter.com/WeAreTellor'
   },  
 ]
 

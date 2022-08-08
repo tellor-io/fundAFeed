@@ -16,12 +16,11 @@
   .App {
     width: 100%;
     min-height: 100vh;
-    height: 100vh;
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #262626;
+    background-image: linear-gradient(45deg,  #1f1f1f, #242424, #363535);
     color: #ffffff;
     font-family: 'Inconsolata', monospace;
   }
@@ -29,6 +28,7 @@
   .HeroContainer {
     width: 92%;
     height: 100%;
+    min-height: 80vh;
     overflow: auto;
     display: flex;
     flex-direction: column;

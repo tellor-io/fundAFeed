@@ -43,32 +43,54 @@
     user-select: none;
   }
 
+  
+
   input{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 80%;
+    width: 95%;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    font-size: large;
+    padding-left: 0.5em;
+    color: white;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     height: 40px;
+  }
+  select{
+    font-size: large;
+    color: white;
+    background-color: rgba(32, 240, 146, 0.2);
+    border-bottom: 2px solid #20f092;
+    
   }
 }
 
 @media screen and (min-width: 786px) {
   .HeroInnerContainer {
-    background-color: #141414;
-    width: 80%;
-    margin-left: 10%;
+    background-color: #222222;
+    margin-left: 15%;
+    border-radius: 25px;
+    border: 2px solid #20f0923e;
+    width: 500px;
     margin-top: 2em;
     grid-column: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 2em;
+    padding: 2em;   
+  }
+  hr{
+    max-width: 100%;
+    margin-bottom: 1em;
   }
   .HeroHeader {
     font-family: 'Montserrat', sans-serif;
-    font-size: 51px;
+    font-size: 40px;
     line-height: 60px;
     margin-bottom: 20px;
   }
@@ -117,10 +139,12 @@
   /* */
   .HeroInfoBox {
     width: 418px;
-    height: 124px;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1em;
+    padding-left: 0em;
+    padding-right: 0em;
     border: 2px solid #ffffff;
     margin: 44px 0px 30px 0px;
     user-select: none;
@@ -138,8 +162,9 @@
   }
   /* */
   .HeroSetParameters {
-    padding-right: 200px;
+    width: 418px;
     margin-bottom: 30px;
+
     user-select: none;
   }
   .HeroSetParameters > p {
@@ -281,3 +306,20 @@
   
 }
 
+@media screen and (min-width: 1624px) {
+  .HeroInnerContainer {
+    background-color: #222222;
+    margin-left: 15%;
+    border-radius: 25px;
+    width: 800px;
+    margin-top: 2em;
+    grid-column: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+  } 
+
+ 
+}

@@ -38,6 +38,7 @@ export const getAssetBalances = async (web3, address, chainId) => {
         .balanceOf(address)
         .call()
         .then((res) => web3.utils.fromWei(res))
+      console.log(trbBalance)
       //Add more assets here if needed
       return {
         main: Math.round(chainMainTokenBalance * 100) / 100,
