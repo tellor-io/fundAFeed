@@ -14,10 +14,6 @@ const links = [
     title: 'Discord',
     link: 'https://discord.com/invite/kaMenz4ZVw'
   },  
-  {
-    title: 'Contact',
-    link: 'https://twitter.com/WeAreTellor'
-  },  
 ]
 
 function Footer() {
