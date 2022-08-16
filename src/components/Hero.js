@@ -115,19 +115,7 @@ function Hero() {
     <>
       <div className="HeroInnerContainer">
         <h1 className="HeroHeader">Fund a Price Feed</h1>
-        <p className="HeroMainText">
-          Already have your{' '}
-          <a
-            href="https://querybuilder.tellor.io/spotprice"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            SpotPrice Query ID
-          </a>
-          ? To fund your feed, select your SpotPrice asset and currency, connect
-          your wallet to Polygon or Mumbai chains, and then set your funding
-          parameters.
-        </p>
+        
         {data.assets ? (
           <div className="HeroDropdowns">
             <label htmlFor="asset">Set Asset:</label>
@@ -194,7 +182,9 @@ function Hero() {
               value={parameterForm.fundAmount}
               onChange={handleParameterChange}
             />{' '}
-            TRB to fund your feed, this autopay will tip your reporter (
+            TRB to fund your feed
+            <hr />
+            autopay will tip your reporter (
             <input
               type="number"
               min={0}
@@ -213,8 +203,9 @@ function Hero() {
               name="tipAmountDecimal"
               value={parameterForm.tipAmountDecimal}
               onChange={handleParameterChange}
-            />
-            ) TRB, as a reward, for data reported within a{' '}
+            />)
+            <hr />
+            TRB, as a reward, for data reported within a{' '}
             <input
               type="number"
               className="HeroParameterFeedNumberInputLarge"
@@ -233,6 +224,7 @@ function Hero() {
               <option value="hour">hour</option>
               <option value="day">day</option>
             </select>{' '}
+            <hr />
             window every{' '}
             <input
               type="number"
@@ -241,6 +233,7 @@ function Hero() {
               value={parameterForm.durationAmount}
               onChange={handleParameterChange}
             />
+
             <select
               type="text"
               className="HeroParameterDropdownInput"
@@ -290,7 +283,9 @@ function Hero() {
               value={parameterForm.startMinuteSecond}
               onChange={handleParameterChange}
             />{' '}
-            my local time, on{' '}
+            my local time
+            <hr />
+            on{' '}
             <input
               type="number"
               min={1}

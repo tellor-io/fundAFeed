@@ -5,7 +5,7 @@ import { UserContext } from '../contexts/User'
 
 function InfoBoxConnected() {
   const user = useContext(UserContext)
-
+  console.log(user.currentUser.balances.trb)
   return (
     <>
       {user && (
@@ -18,7 +18,7 @@ function InfoBoxConnected() {
           <p>
             {user.currentUser.balances && user.currentUser.balances.trb
               ? `Wallet Balance: ${user.currentUser.balances.trb} TRB`
-              : 'Current chain not TRB supported'}
+              : `You hold ${user.currentUser.balances.trb} TRB`}
           </p>
         </div>
       )}

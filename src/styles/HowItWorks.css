@@ -1,0 +1,106 @@
+@media screen and (max-width: 786px) {
+  .wrapper{
+    margin-top: 60px;
+    padding: 1em;
+  }
+  .title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    line-height: 60px;
+    margin-bottom: 20px;
+
+  }
+  .mainText{
+    font-size: 22px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+  .infoButtons {
+    min-width: 200px;
+    height: 48px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 1em;
+    padding: 0px 10px;
+    border: 2px solid #20f092;
+    background-color: #242424;
+    cursor: pointer;
+    color: #20f092;
+    margin-top: 1em;
+  }
+
+  .infoButtons:hover {
+    background-color: #20f092;
+    color: #242424;
+  }
+
+  .HeroFundFeed{
+    margin-top: 1em;
+    border: 2px solid #242424;
+    color: #242424;
+    font-weight: 500;
+    background-color: #20f092;
+    width: 50%;
+    padding: 1em;
+  }
+}
+
+@media (min-width: 786px) {
+  .wrapper{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 2em;
+    grid-column: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em;
+  }
+
+  .title{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+  }
+
+  .mainText{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: 30px;
+  }
+
+  .infoContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .infoButtons {
+    min-width: 200px;
+    height: 48px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: larger;
+    margin-right: 1em;
+    padding: 0px 10px;
+    border: 2px solid #20f092;
+    background-color: #242424;
+    cursor: pointer;
+    color: #20f092;
+  }
+
+  .infoButtons:hover {
+    background-color: #20f092;
+    color: #242424;
+  }
+}

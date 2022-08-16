@@ -30,11 +30,7 @@
 
 /* Media Queries */
 @media (max-width: 400px) {
-  .WalletConnect {
-    height: fit-content;
-    margin-bottom: -30px;
-    padding: 10px;
-  }
+ 
   .WalletConnected {
     flex-direction: column;
     width: 150px;
@@ -47,5 +43,17 @@
   .Jazzicon {
     margin-right: 0px;
     margin-top: -5px;
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .WalletConnect {
+    height: fit-content;
+    margin-bottom: -0px;
+    padding: 10px;
+  }
+
+  .Jazzicon {
+    height: 0;
   }
 }
