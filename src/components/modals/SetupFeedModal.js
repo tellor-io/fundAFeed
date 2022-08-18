@@ -47,7 +47,7 @@ function SetupFeedModal({
       parameterForm.windowType
     )
     encodedFeed = abiCoder.encode(
-      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256'],
+      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256','uint256'],
       [
         spotPriceData.queryId.toString(),
         tellorAddy.toString(),
@@ -55,22 +55,22 @@ function SetupFeedModal({
         startTime,
         interval,
         window,
+        0
       ]
     )
     feedId = ethers.utils.keccak256(encodedFeed)
     setThisFeedId(feedId)
-
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
       autopay.methods
         .setupDataFeed(
-          tellorAddy,
           spotPriceData.queryId,
           reward,
           startTime,
           interval,
           window,
+          0,
           spotPriceData.queryData
         )
         .send({ from: user.currentUser.address })
