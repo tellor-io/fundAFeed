@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 //Router
 import { useNavigate, useLocation } from 'react-router-dom'
 //Context
@@ -28,7 +28,6 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
-      console.log(parameterForm.fundAmount)
       autopay.methods
         .fundFeed(
           thisFeedId,

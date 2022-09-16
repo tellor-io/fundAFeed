@@ -11,8 +11,6 @@ import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
 //Components
 import Loader from '../Loader'
-//Web3
-import { ethers } from 'ethers'
 
 function SetupFeedModal({
   parameterForm,
@@ -58,8 +56,6 @@ function SetupFeedModal({
         0
       ]
     )
-    feedId = ethers.utils.keccak256(encodedFeed)
-    setThisFeedId(feedId)
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
@@ -76,6 +72,7 @@ function SetupFeedModal({
         .send({ from: user.currentUser.address })
         .then((res) => {
           setSetupFeedTxnHash(res.transactionHash)
+          setThisFeedId(res.events.NewDataFeed.returnValues._feedId)
           setLoading(false)
           navigate('/approve')
         })

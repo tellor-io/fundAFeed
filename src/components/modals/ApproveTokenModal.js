@@ -85,7 +85,7 @@ function ApproveTokenModal({
   //Helpers
   const handleApprove = () => {
     //let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
-    setOfficialDataFeed(false)
+    setOfficialDataFeed(true)
     try {
       const trbToken = new user.currentUser.web3.eth.Contract(
         tellorTokenPolygonABI,
@@ -100,17 +100,18 @@ function ApproveTokenModal({
         .send({ from: user.currentUser.address })
         .then((res) => {
           setOfficialDataFeed(false)
-          console.log(res)
           navigate('/fundfeed', {
             state: {
               txnURL: txnURL,
             },
           })
+          setOfficialDataFeed(false)
         })
         .catch((err) => {
           setOfficialDataFeed(false)
           console.log(err)
           error.setError(err.message)
+          setOfficialDataFeed(false)
         })
     } catch (err) {
       console.log('CATCH ERR::: ', err)
@@ -166,7 +167,7 @@ function ApproveTokenModal({
       <div className="VerifyModalButton" onClick={() => handleApprove()}>
         approve
       </div>
-      <Loader loading={!officialDataFeed} />
+      <Loader loading={officialDataFeed} />
     </div>
   )
 }
