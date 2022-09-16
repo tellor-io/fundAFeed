@@ -11,8 +11,7 @@ import Loader from '../Loader'
 import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
 
-function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
-  const [userBalance, setUserBalance] = useState(0)
+function FundFeedModal({ parameterForm, autopayAddy, thisFeedId, thisQueryId }) {
   //Component State
   const [loading, setLoading] = useState()
   //Context
@@ -32,7 +31,7 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
       autopay.methods
         .fundFeed(
           thisFeedId,
-          spotPriceData.queryId,
+          thisQueryId,
           user.currentUser.web3.utils.toWei(parameterForm.fundAmount.toString())
         )
         .send({ from: user.currentUser.address })

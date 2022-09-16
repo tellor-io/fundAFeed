@@ -20,6 +20,7 @@ function SetupFeedModal({
   setLoading,
   setSetupFeedTxnHash,
   setThisFeedId,
+  setQueryId
 }) {
   //Context
   const user = useContext(UserContext)
@@ -72,7 +73,9 @@ function SetupFeedModal({
         .send({ from: user.currentUser.address })
         .then((res) => {
           setSetupFeedTxnHash(res.transactionHash)
+          console.log(res.events.NewDataFeed.returnValues)
           setThisFeedId(res.events.NewDataFeed.returnValues._feedId)
+          setQueryId(res.events.NewDataFeed.returnValues._queryId)
           setLoading(false)
           navigate('/approve')
         })
