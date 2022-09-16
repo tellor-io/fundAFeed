@@ -56,15 +56,6 @@ function ApproveTokenModal({
       : graphData,
   ])
 
-  useEffect(() => {
-    if (!feedIds) return
-    if (feedIds.includes(thisFeedId)) {
-      setOfficialDataFeed(true)
-    } else {
-      setOfficialDataFeed(false)
-    }
-  }, [feedIds, thisFeedId, graphData])
-
   //Comment out for production
   useEffect(() => {
     if (!feedIds) return
