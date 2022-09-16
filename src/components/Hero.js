@@ -47,7 +47,7 @@ function Hero() {
   //Context
   const data = useContext(AppDataContext)
   const userData = useContext(UserContext)
-
+  
   //Handlers
   const handleDropdownChange = (event) => {
     setDropdownForm({

@@ -12,6 +12,7 @@ import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
 
 function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
+  const [userBalance, setUserBalance] = useState(0)
   //Component State
   const [loading, setLoading] = useState()
   //Context
@@ -104,9 +105,17 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
       <div className="VerifyFundParameter">
         <p>{`${parameterForm.fundAmount} TRB`}</p>
       </div>
-      <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
-        fund feed
-      </div>
+      {
+        user.currentUser && user.currentUser.balances.trb && user.currentUser.balances.trb > parameterForm.fundAmount ?
+        <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
+          fund feed
+        </div>
+        :
+        <div>
+          Not enough TRB
+        </div>
+      }
+      
       <Loader loading={loading} />
     </div>
   )
