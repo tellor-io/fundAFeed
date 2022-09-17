@@ -105,13 +105,13 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId, thisQueryId }) 
         <p>{`${parameterForm.fundAmount} TRB`}</p>
       </div>
       {
-        user.currentUser && user.currentUser.balances.trb && user.currentUser.balances.trb > parameterForm.fundAmount ?
+        user.currentUser && user.currentUser.balances.trb && user.currentUser.balances.trb >= parameterForm.fundAmount ?
         <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
           fund feed
         </div>
         :
-        <div>
-          Not enough TRB
+        <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
+          fund feed
         </div>
       }
       

@@ -9,6 +9,7 @@ import { GraphContext } from '../../contexts/Graph'
 //Utils
 import tellorTokenPolygonABI from '../../utils/tellorTokenPolygonABI.json'
 import { dateHelper } from '../../utils/time'
+import {gas} from '../../utils/estimateGas'
 //Components
 import Loader from '../Loader'
 
@@ -74,7 +75,7 @@ function ApproveTokenModal({
   }, [user, setupFeedTxnHash])
 
   //Helpers
-  const handleApprove = () => {
+  const handleApprove = async() => {
     //let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
     setOfficialDataFeed(true)
     try {
@@ -88,7 +89,7 @@ function ApproveTokenModal({
           autopayAddy,
           user.currentUser.web3.utils.toWei(parameterForm.fundAmount.toString())
         )
-        .send({ from: user.currentUser.address })
+        .send({ from: user.currentUser.address,  ...(await gas()) })
         .then((res) => {
           setOfficialDataFeed(false)
           navigate('/fundfeed', {
