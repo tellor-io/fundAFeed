@@ -13,8 +13,7 @@ function ConfirmedModal({ parameterForm, closeModal }) {
   const user = useContext(UserContext)
   //Router
   const { state } = useLocation()
-  console.log(state)
-
+ 
   useEffect(() => {
     if (!user || !user.currentUser) return
     if (!state.fundFeedTxnHash) return
@@ -34,7 +33,7 @@ function ConfirmedModal({ parameterForm, closeModal }) {
         Your price feed has been setup and funded.
       </p>
       <a
-        href="https://tellor.io/"
+        href="https://tellor.io/data-feed"
         target="_blank"
         rel="noreferrer noopener"
         className="CheckLivenessModalButton"
@@ -72,7 +71,7 @@ function ConfirmedModal({ parameterForm, closeModal }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Verified: View on PolygonScan
+          Verified: View on Scan Explorer
         </a>
       </div>
       <h4 className="VerifyModalSubtitle">Your funding amount:</h4>
@@ -85,7 +84,7 @@ function ConfirmedModal({ parameterForm, closeModal }) {
         target="_blank"
         rel="noopener noreferrer"
       >
-        Verified: View on PolygonScan
+        Verified: View on Scan Explorer
       </a>
     </div>
   )

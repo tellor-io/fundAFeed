@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 //Router
 import { useNavigate, useLocation } from 'react-router-dom'
 //Context
@@ -11,7 +11,7 @@ import Loader from '../Loader'
 import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
 
-function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
+function FundFeedModal({ parameterForm, autopayAddy, thisFeedId, thisQueryId }) {
   //Component State
   const [loading, setLoading] = useState()
   //Context
@@ -28,11 +28,10 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
-      console.log(parameterForm.fundAmount)
       autopay.methods
         .fundFeed(
           thisFeedId,
-          spotPriceData.queryId,
+          thisQueryId,
           user.currentUser.web3.utils.toWei(parameterForm.fundAmount.toString())
         )
         .send({ from: user.currentUser.address })
@@ -105,9 +104,17 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId }) {
       <div className="VerifyFundParameter">
         <p>{`${parameterForm.fundAmount} TRB`}</p>
       </div>
-      <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
-        fund feed
-      </div>
+      {
+        user.currentUser && user.currentUser.balances.trb && user.currentUser.balances.trb >= parameterForm.fundAmount ?
+        <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
+          fund feed
+        </div>
+        :
+        <div className="VerifyModalButton" onClick={() => handleFundFeed()}>
+          fund feed
+        </div>
+      }
+      
       <Loader loading={loading} />
     </div>
   )

@@ -41,6 +41,7 @@ function ContainerModal({ modal, parameterForm }) {
   const [loading, setLoading] = useState(false)
   const [setupFeedTxnHash, setSetupFeedTxnHash] = useState(null)
   const [thisFeedId, setThisFeedId] = useState(null)
+  const [thisQueryId, setQueryId] = useState(null)
   //Contexts
   const user = useContext(UserContext)
   const error = useContext(ErrorContext)
@@ -130,6 +131,7 @@ function ContainerModal({ modal, parameterForm }) {
                           setLoading={setLoading}
                           setSetupFeedTxnHash={setSetupFeedTxnHash}
                           setThisFeedId={setThisFeedId}
+                          setQueryId={setQueryId}
                         />
                       }
                     />
@@ -152,6 +154,7 @@ function ContainerModal({ modal, parameterForm }) {
                           parameterForm={parameterForm}
                           autopayAddy={autopayAddress}
                           thisFeedId={thisFeedId}
+                          thisQueryId={thisQueryId}
                         />
                       }
                     />

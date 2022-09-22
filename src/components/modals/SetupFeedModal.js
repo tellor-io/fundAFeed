@@ -9,10 +9,9 @@ import { ErrorContext } from '../../contexts/Error'
 import { dateManipulator, convertToSeconds } from '../../utils/helpers'
 import { dateHelper } from '../../utils/time'
 import autopayABI from '../../utils/autopayABI.json'
+import {gas} from '../../utils/estimateGas'
 //Components
 import Loader from '../Loader'
-//Web3
-import { ethers } from 'ethers'
 
 function SetupFeedModal({
   parameterForm,
@@ -22,6 +21,7 @@ function SetupFeedModal({
   setLoading,
   setSetupFeedTxnHash,
   setThisFeedId,
+  setQueryId
 }) {
   //Context
   const user = useContext(UserContext)
@@ -31,7 +31,7 @@ function SetupFeedModal({
   const navigate = useNavigate()
 
   //Handlers
-  const handleSetupFeed = (parameterForm) => {
+  const handleSetupFeed = async(parameterForm) => {
     let reward, startTime, interval, window, autopay, encodedFeed, feedId
 
     startTime = dateManipulator(parameterForm)
@@ -58,8 +58,6 @@ function SetupFeedModal({
         0
       ]
     )
-    feedId = ethers.utils.keccak256(encodedFeed)
-    setThisFeedId(feedId)
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
@@ -73,9 +71,12 @@ function SetupFeedModal({
           0,
           spotPriceData.queryData
         )
-        .send({ from: user.currentUser.address })
+        .send({ from: user.currentUser.address, ...(await gas()) })
         .then((res) => {
           setSetupFeedTxnHash(res.transactionHash)
+          console.log(res.events.NewDataFeed.returnValues)
+          setThisFeedId(res.events.NewDataFeed.returnValues._feedId)
+          setQueryId(res.events.NewDataFeed.returnValues._queryId)
           setLoading(false)
           navigate('/approve')
         })

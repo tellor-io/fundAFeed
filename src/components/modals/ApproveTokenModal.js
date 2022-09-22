@@ -9,6 +9,7 @@ import { GraphContext } from '../../contexts/Graph'
 //Utils
 import tellorTokenPolygonABI from '../../utils/tellorTokenPolygonABI.json'
 import { dateHelper } from '../../utils/time'
+import {gas} from '../../utils/estimateGas'
 //Components
 import Loader from '../Loader'
 
@@ -56,15 +57,6 @@ function ApproveTokenModal({
       : graphData,
   ])
 
-  useEffect(() => {
-    if (!feedIds) return
-    if (feedIds.includes(thisFeedId)) {
-      setOfficialDataFeed(true)
-    } else {
-      setOfficialDataFeed(false)
-    }
-  }, [feedIds, thisFeedId, graphData])
-
   //Comment out for production
   useEffect(() => {
     if (!feedIds) return
@@ -83,9 +75,9 @@ function ApproveTokenModal({
   }, [user, setupFeedTxnHash])
 
   //Helpers
-  const handleApprove = () => {
+  const handleApprove = async() => {
     //let tellorProxyAddy = '0x45cAF1aae42BA5565EC92362896cc8e0d55a2126'
-    setOfficialDataFeed(false)
+    setOfficialDataFeed(true)
     try {
       const trbToken = new user.currentUser.web3.eth.Contract(
         tellorTokenPolygonABI,
@@ -97,20 +89,21 @@ function ApproveTokenModal({
           autopayAddy,
           user.currentUser.web3.utils.toWei(parameterForm.fundAmount.toString())
         )
-        .send({ from: user.currentUser.address })
+        .send({ from: user.currentUser.address,  ...(await gas()) })
         .then((res) => {
           setOfficialDataFeed(false)
-          console.log(res)
           navigate('/fundfeed', {
             state: {
               txnURL: txnURL,
             },
           })
+          setOfficialDataFeed(false)
         })
         .catch((err) => {
           setOfficialDataFeed(false)
           console.log(err)
           error.setError(err.message)
+          setOfficialDataFeed(false)
         })
     } catch (err) {
       console.log('CATCH ERR::: ', err)
@@ -166,7 +159,7 @@ function ApproveTokenModal({
       <div className="VerifyModalButton" onClick={() => handleApprove()}>
         approve
       </div>
-      <Loader loading={!officialDataFeed} />
+      <Loader loading={officialDataFeed} />
     </div>
   )
 }
