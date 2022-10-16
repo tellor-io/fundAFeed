@@ -8,7 +8,7 @@ export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
 export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
 export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
 export const autopayAddressPolygon =
-  '0xD789488E5ee48Ef8b0719843672Bc04c213b648c'
+  '0xb1BA09F56F3E6A58680b88e0af7e32F30A61C1Bb'
 export const autopayAddressMumbai = '0xC5231f64A81987731436F430dF9D9f5552EC3ef6'
 
 export const truncateAddr = (addr) => {
