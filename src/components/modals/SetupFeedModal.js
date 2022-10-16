@@ -32,11 +32,14 @@ function SetupFeedModal({
 
   //Handlers
   const handleSetupFeed = async(parameterForm) => {
-    let reward, startTime, interval, window, autopay, encodedFeed, feedId
+    let reward, startTime, interval, window, autopay, encodedFeed, rewardIncreasePerSecond, feedId
 
     startTime = dateManipulator(parameterForm)
     reward = user.currentUser.web3.utils.toWei(
       `${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal}`
+    )
+    rewardIncreasePerSecond = user.currentUser.web3.utils.toWei(
+      `${parameterForm.rewardIncreasePerSecond}`
     )
     interval = convertToSeconds(
       parameterForm.durationAmount,
@@ -47,7 +50,7 @@ function SetupFeedModal({
       parameterForm.windowType
     )
     encodedFeed = abiCoder.encode(
-      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256','uint256'],
+      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256','uint256','uint256'],
       [
         spotPriceData.queryId.toString(),
         tellorAddy.toString(),
@@ -55,7 +58,8 @@ function SetupFeedModal({
         startTime,
         interval,
         window,
-        0
+        0,
+        rewardIncreasePerSecond,
       ]
     )
     try {
@@ -69,7 +73,9 @@ function SetupFeedModal({
           interval,
           window,
           0,
-          spotPriceData.queryData
+          rewardIncreasePerSecond,
+          spotPriceData.queryData,
+          0
         )
         .send({ from: user.currentUser.address, ...(await gas()) })
         .then((res) => {
@@ -110,6 +116,10 @@ function SetupFeedModal({
         <p>
           Interval:{' '}
           <span className="bolded">{`${parameterForm.durationAmount} ${parameterForm.durationType}`}</span>
+        </p>
+        <p>
+          Reward Increase:{' '}
+          <span className="bolded">{`${parameterForm.rewardIncreasePerSecond}`}</span>
         </p>
         <p>
           Starting:{' '}
