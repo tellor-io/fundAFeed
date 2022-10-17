@@ -212,10 +212,10 @@ function Hero() {
               min={0}
               max={9}
               className="HeroParameterFeedNumberInputSmall"
-              name="rewardIncreaseAmountNumber"
+              name="rewardIncreasePerSecond"
               value={parameterForm.rewardIncreasePerSecond}
               onChange={handleParameterChange}
-            /> )
+            /> TRB)
             until a value is mined
             <hr />
             TRB, as a reward, for data reported within a{' '}

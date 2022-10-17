@@ -120,6 +120,7 @@ function SetupFeedModal({
         <p>
           Reward Increase:{' '}
           <span className="bolded">{`${parameterForm.rewardIncreasePerSecond}`}</span>
+          TRB per second
         </p>
         <p>
           Starting:{' '}
