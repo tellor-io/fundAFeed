@@ -208,6 +208,9 @@ function Hero() {
             <hr />
             Rewards will increase by (
             <input
+              style={{
+                width: '3vw'
+              }}
               type="number"
               min={0}
               max={9}
