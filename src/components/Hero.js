@@ -21,6 +21,7 @@ const initialDropdownValues = {
 
 const initialParameterValues = {
   fundAmount: 1,
+  rewardIncreasePerSecond: 0,
   tipAmountNumber: 0,
   tipAmountDecimal: 25,
   windowAmount: 30,
@@ -204,6 +205,21 @@ function Hero() {
               value={parameterForm.tipAmountDecimal}
               onChange={handleParameterChange}
             />)
+            <hr />
+            Rewards will increase by (
+            <input
+              style={{
+                width: '3vw'
+              }}
+              type="number"
+              min={0}
+              max={9}
+              className="HeroParameterFeedNumberInputSmall"
+              name="rewardIncreasePerSecond"
+              value={parameterForm.rewardIncreasePerSecond}
+              onChange={handleParameterChange}
+            /> TRB)
+            until a value is mined
             <hr />
             TRB, as a reward, for data reported within a{' '}
             <input

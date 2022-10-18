@@ -1,5 +1,7 @@
 import { ethers } from 'ethers';
 
+// This code was borrowed from Ricochet Frontend by Sero a developer on Ricochet Exchange, https://ricochet.exchange 
+
 const GAS_STATION_MATIC_URL = 'https://gasstation-mainnet.matic.network/v2';
 export const gas = async () => {
 	try {
