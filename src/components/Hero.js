@@ -205,22 +205,6 @@ function Hero() {
               value={parameterForm.tipAmountDecimal}
               onChange={handleParameterChange}
             />)
-            <hr />
-            Rewards will increase by (
-            <input
-              style={{
-                width: '3vw'
-              }}
-              type="number"
-              min={0}
-              max={9}
-              className="HeroParameterFeedNumberInputSmall"
-              name="rewardIncreasePerSecond"
-              value={parameterForm.rewardIncreasePerSecond}
-              onChange={handleParameterChange}
-            /> TRB)
-            until a value is mined
-            <hr />
             TRB, as a reward, for data reported within a{' '}
             <input
               type="number"
@@ -333,6 +317,22 @@ function Hero() {
               <option value="2025">2025</option>
             </select>
             (DD/MM/YYYY).
+            <hr />
+            Rewards will increase by (
+            <input
+              style={{
+                width: '3vw'
+              }}
+              type="number"
+              min={0}
+              max={9}
+              className="HeroParameterFeedNumberInputSmall"
+              name="rewardIncreasePerSecond"
+              value={parameterForm.rewardIncreasePerSecond}
+              onChange={handleParameterChange}
+            /> TRB)
+            until a value is mined
+            <hr />
           </p>
         </div>
         <div
