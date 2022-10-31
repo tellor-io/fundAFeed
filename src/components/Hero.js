@@ -330,7 +330,7 @@ function Hero() {
               name="rewardIncreasePerSecond"
               value={parameterForm.rewardIncreasePerSecond}
               onChange={handleParameterChange}
-            /> TRB)
+            /> TRB / per second) 
             until a value is mined
             <hr />
           </p>
