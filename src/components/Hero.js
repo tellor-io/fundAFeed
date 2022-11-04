@@ -13,7 +13,6 @@ import InfoBoxConnected from './InfoBoxConnected'
 import ContainerModal from './modals/ContainerModal'
 //Utils
 import { dateHelper } from '../utils/time'
-import { padding } from '@mui/system'
 
 const initialDropdownValues = {
   asset: '',
@@ -67,6 +66,7 @@ function Hero() {
   const startModalFlow = () => {
     containerModal.style.display = 'flex'
   }
+
   //Helpers
   //useEffect to make sure feed parameters are
   //valid entries before being able to submit.
@@ -169,26 +169,6 @@ function Hero() {
             <WalletConnect nav={false} />
           )}
         </div>
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            width: '50%',
-            paddingBottom: '1em'
-          }}
-        >
-          <div 
-            className='HeroFundFeed'
-            onClick={() => setFundType('oneTime')}
-          >One time tip</div>
-          <div 
-            className='HeroFundFeed'
-            onClick={() => setFundType('recurring')}
-          >Recurring tip</div>
-        </div>
-        
         {
           fundType === 'recurring' ? 
           <>
@@ -402,6 +382,25 @@ function Hero() {
           :
           'Please select type of tip.'
         }
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            width: '50%',
+            paddingTop: '2em'
+          }}
+        >
+          <div 
+            className='HeroFundFeed'
+            onClick={() => setFundType('oneTime')}
+          >One time tip</div>
+          <div 
+            className='HeroFundFeed'
+            onClick={() => setFundType('recurring')}
+          >Recurring tip</div>
+        </div>
         
 
       </div>
@@ -410,6 +409,7 @@ function Hero() {
           <ContainerModal
             modal={containerModal}
             parameterForm={parameterForm}
+            transactionType={fundType}
           />
         </Error>
       </SpotPrice>
