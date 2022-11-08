@@ -169,6 +169,34 @@ function Hero() {
             <WalletConnect nav={false} />
           )}
         </div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            flexDirection: 'row',
+            width: '50%',
+            paddingTop: '2em',
+            paddingBottom: '2em',
+          }}
+        >
+          <div 
+            className='HeroFundFeed'
+            style={{
+              color: fundType === 'oneTime' ? '#20f092' : '#20f09250',
+              border: fundType === 'oneTime' ? '2px solid #20f092' : '2px solid #20f09250',
+            }}
+            onClick={() => setFundType('oneTime')}
+          >One time tip</div>
+          <div 
+            className='HeroFundFeed'
+            style={{
+              color: fundType === 'recurring' ? '#20f092' : '#20f09250',
+              border: fundType === 'recurring' ? '2px solid #20f092' : '2px solid #20f09250',
+            }}
+            onClick={() => setFundType('recurring')}
+          >Recurring tip</div>
+        </div>
         {
           fundType === 'recurring' ? 
           <>
@@ -380,28 +408,9 @@ function Hero() {
             </div>
           </>
           :
-          'Please select type of tip.'
+          <p style={{marginTop: '3em'}}>
+          'Please select type of tip.'</p>
         }
-        <div
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            flexDirection: 'row',
-            width: '50%',
-            paddingTop: '2em'
-          }}
-        >
-          <div 
-            className='HeroFundFeed'
-            onClick={() => setFundType('oneTime')}
-          >One time tip</div>
-          <div 
-            className='HeroFundFeed'
-            onClick={() => setFundType('recurring')}
-          >Recurring tip</div>
-        </div>
-        
 
       </div>
       <SpotPrice form={dropdownForm} infoBoxDisabled={infoBoxDisabled}>
