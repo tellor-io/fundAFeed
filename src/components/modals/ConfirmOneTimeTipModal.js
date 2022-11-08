@@ -38,7 +38,6 @@ function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash }) {
       >
         check liveness
       </a>
-      <h4 className="VerifyModalSubtitle">Your parameters:</h4>
       <h4 className="VerifyModalSubtitle">Your funding amount:</h4>
       <div className="VerifyFundParameter">
         <p>{`${parameterForm.fundAmount} TRB`}</p>
