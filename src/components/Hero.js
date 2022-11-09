@@ -67,6 +67,8 @@ function Hero() {
     containerModal.style.display = 'flex'
   }
 
+  console.log('here', dropdownForm)
+
   //Helpers
   //useEffect to make sure feed parameters are
   //valid entries before being able to submit.
@@ -419,6 +421,7 @@ function Hero() {
             modal={containerModal}
             parameterForm={parameterForm}
             transactionType={fundType}
+            pair={`${dropdownForm.asset} / ${dropdownForm.currency}`}
           />
         </Error>
       </SpotPrice>

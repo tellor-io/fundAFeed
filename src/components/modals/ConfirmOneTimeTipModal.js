@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom'
 import { UserContext } from '../../contexts/User'
 //Utils
 
-function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash }) {
+function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash, pair }) {
   //Component
   const [oneTimeTipTxnURL, setOneTimeTipTxnURL] = useState(null)
   //Context
@@ -41,6 +41,10 @@ function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash }) {
       <h4 className="VerifyModalSubtitle">Your funding amount:</h4>
       <div className="VerifyFundParameter">
         <p>{`${parameterForm.fundAmount} TRB`}</p>
+      </div>
+      <h4 className="VerifyModalSubtitle">Pair funded:</h4>
+      <div className="VerifyFundParameter">
+        <p>{pair}</p>
       </div>
       <a
         className="VerifiedButton"

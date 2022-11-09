@@ -18,6 +18,7 @@ function ApproveOneTimeTipTokenModal({
   autopayAddy,
   setupFeedTxnHash,
   thisFeedId,
+  pair
 }) {
   //Component State
   const [feedIds, setFeedIds] = useState(null)
@@ -120,7 +121,10 @@ function ApproveOneTimeTipTokenModal({
       <div className="VerifyParametersApprove">
         <p>
           Tip Amount:{' '}
-          <span className="bolded">{`${parameterForm.fundAmount} TRB`}</span>
+          <span className="bolded">{`${parameterForm.fundAmount}`}</span>
+          <br style={{marginTop: '1em'}} />
+          Pair:{' '}
+          <span className="bolded">{pair}</span>
         </p>
         <p className="ApproveMessage">
           <span className="bolded">

@@ -18,8 +18,7 @@ function OneTimeTipModal({
   loading,
   setLoading,
   setOneTimeTipTxnHash,
-  setThisFeedId,
-  setQueryId
+  pair
 }) {
   //Context
   const user = useContext(UserContext)
@@ -72,6 +71,12 @@ function OneTimeTipModal({
         <p>
           Tip Amount:{' '}
           <span className="bolded">{`${parameterForm.fundAmount} TRB`}</span>
+          <br />
+          Pair:{' '}
+          <span className="bolded">{pair}</span>
+        </p>
+        <p>
+
         </p>
       </div>
       <div

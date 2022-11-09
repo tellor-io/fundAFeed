@@ -36,7 +36,7 @@ const clientMumbai = new ApolloClient({
   cache: new InMemoryCache(),
 })
 
-function ContainerModal({ modal, parameterForm, transactionType }) {
+function ContainerModal({ modal, parameterForm, transactionType, pair }) {
   //Component State
   const [apolloClient, setApolloClient] = useState(clientMumbai)
   const [tellorAddress, setTellorAddress] = useState(null)
@@ -148,6 +148,7 @@ function ContainerModal({ modal, parameterForm, transactionType }) {
                             setSetupFeedTxnHash={setSetupFeedTxnHash}
                             setThisFeedId={setThisFeedId}
                             setQueryId={setQueryId}
+                            pair={pair}
                           />
                       }
                     />
@@ -164,6 +165,7 @@ function ContainerModal({ modal, parameterForm, transactionType }) {
                           setOneTimeTipTxnHash={setOneTimeTipTxnHash}
                           setThisFeedId={setThisFeedId}
                           setQueryId={setQueryId}
+                          pair={pair}
                         />
                       }
                     />
@@ -175,6 +177,7 @@ function ContainerModal({ modal, parameterForm, transactionType }) {
                           parameterForm={parameterForm}
                           closeModal={closeModal}
                           txnHash={oneTimeTipTxnHash}
+                          pair={pair}
                         />
                       }
                     />
