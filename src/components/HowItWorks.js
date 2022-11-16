@@ -33,14 +33,14 @@ export default function HowItWorks() {
             rel="noopener noreferrer"
             > using this as an example
           </a>
-          )
+          .)
           <br></br>
 
         <p>
           <br></br>
           <div className="subtitle2">To fund your feed:</div> <li>Connect your wallet to Polygon or Mumbai chains</li> 
           <li>Select your SpotPrice asset and currency</li>
-          <li>Set your funding parameters.</li>
+          <li>Set your funding parameters</li>
           <li>Verify, Approve, & Fund your feed</li>
 
           <br></br>
