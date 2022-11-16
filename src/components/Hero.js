@@ -16,7 +16,7 @@ import { dateHelper } from '../utils/time'
 
 const initialDropdownValues = {
   asset: '',
-  currency: 'usd',
+  currency: '',
 }
 
 const initialParameterValues = {
@@ -118,21 +118,31 @@ function Hero() {
 
   return (
     <>
-      <div className="HeroInnerContainer">
-        <h1 className="HeroHeader">Fund a Price Feed</h1>
-        
+      <div className="HeroInnerContainer" >
+      <h1 className="HeroHeader">Fund a Price Feed</h1>
+      <div
+          className={'HeroInfoBox'}
+        >
+        {userData.currentUser ? (
+         <InfoBoxConnected /> 
+        ) : (
+          <WalletConnect nav={false}   />
+        )}       
+      </div>
+       
+
         {data.assets ? (
           <div className="HeroDropdowns">
             <label htmlFor="asset">Set Asset:</label>
             <input
-              list="assetDropdown"
+              //list="assetDropdown"
               type="text"
               name="asset"
               id="assetInput"
               className="dropdown"
               value={dropdownForm.asset}
               onChange={handleDropdownChange}
-              placeholder="Search"
+              placeholder="eth"
               spellCheck={false}
             />
             <datalist id="assetDropdown">
@@ -149,7 +159,7 @@ function Hero() {
               className="dropdown"
               value={dropdownForm.currency}
               onChange={handleDropdownChange}
-              placeholder="Search"
+              placeholder="usd"
               spellCheck={false}
             />
             <datalist id="currencyDropdown">
@@ -162,15 +172,8 @@ function Hero() {
         ) : (
           <LinearIndeterminate />
         )}
-        <div
-          className={infoBoxDisabled ? 'HeroInfoBox disabled' : 'HeroInfoBox'}
-        >
-          {userData.currentUser ? (
-            <InfoBoxConnected />
-          ) : (
-            <WalletConnect nav={false} />
-          )}
-        </div>
+                <p style={{marginTop: '1em', marginBottom: '1em'}}>
+          Select frequency of funding:</p>
         <div
           style={{
             display: 'flex',
@@ -178,7 +181,7 @@ function Hero() {
             justifyContent: 'space-between',
             flexDirection: 'row',
             width: '50%',
-            paddingTop: '2em',
+            paddingTop: '1em',
             paddingBottom: '2em',
           }}
         >
@@ -189,7 +192,7 @@ function Hero() {
               border: fundType === 'oneTime' ? '2px solid #20f092' : '2px solid #20f09250',
             }}
             onClick={() => setFundType('oneTime')}
-          >One time tip</div>
+          >One time</div>
           <div 
             className='HeroFundFeed'
             style={{
@@ -197,7 +200,7 @@ function Hero() {
               border: fundType === 'recurring' ? '2px solid #20f092' : '2px solid #20f09250',
             }}
             onClick={() => setFundType('recurring')}
-          >Recurring tip</div>
+          >Recurring</div>
         </div>
         {
           fundType === 'recurring' ? 
@@ -218,9 +221,9 @@ function Hero() {
                 value={parameterForm.fundAmount}
                 onChange={handleParameterChange}
               />{' '}
-              TRB to fund your feed
+              TRB to fund your feed,
               <hr />
-              autopay will tip your reporter (
+              the 'autopay' smart contract will reward reporters  (
               <input
                 type="number"
                 min={0}
@@ -240,7 +243,9 @@ function Hero() {
                 value={parameterForm.tipAmountDecimal}
                 onChange={handleParameterChange}
               />)
-              TRB, as a reward, for data reported within a{' '}
+              TRB,
+              <hr />
+              for data reported within a{' '}
               <input
                 type="number"
                 className="HeroParameterFeedNumberInputLarge"
@@ -258,9 +263,9 @@ function Hero() {
                 <option value="minute">minute</option>
                 <option value="hour">hour</option>
                 <option value="day">day</option>
-              </select>{' '}
+              </select>{' '} window,
               <hr />
-              window every{' '}
+               every{' '}
               <input
                 type="number"
                 className="HeroParameterFeedNumberInputLarge"
@@ -318,7 +323,7 @@ function Hero() {
                 value={parameterForm.startMinuteSecond}
                 onChange={handleParameterChange}
               />{' '}
-              my local time
+              my local time,
               <hr />
               on{' '}
               <input
@@ -366,7 +371,7 @@ function Hero() {
                 value={parameterForm.rewardIncreasePerSecond}
                 onChange={handleParameterChange}
               /> TRB / per second) 
-              until a value is mined
+              until a value is mined.
               <hr />
             </p>
           </div>
@@ -411,7 +416,7 @@ function Hero() {
           </>
           :
           <p style={{marginTop: '3em'}}>
-          'Please select type of tip.'</p>
+          </p>
         }
 
       </div>
