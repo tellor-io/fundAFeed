@@ -17,8 +17,8 @@ export default function HowItWorks() {
           </a>. 
           <br></br>
           <br></br>
-          <div className="subtitle2">Before requesting a feed</div> 
-          make sure the price you are requesting has already been specified 
+          <div className="subtitle2">Before requesting a feed: </div> 
+          Make sure the price you are requesting has already been specified 
           <a
             href="https://github.com/tellor-io/telliot-feeds/tree/main/src/telliot_feeds/feeds"
             target="_blank"
@@ -38,10 +38,10 @@ export default function HowItWorks() {
 
         <p>
           <br></br>
-          <div className="subtitle2">To fund your feed:</div> <li>connect your wallet to Polygon or Mumbai chains</li> 
-          <li>select your SpotPrice asset and currency</li>
-          <li>set your funding parameters.</li>
-          <li>veryify, approve, & fund your feed</li>
+          <div className="subtitle2">To fund your feed:</div> <li>Connect your wallet to Polygon or Mumbai chains</li> 
+          <li>Select your SpotPrice asset and currency</li>
+          <li>Set your funding parameters.</li>
+          <li>Verify, Approve, & Fund your feed</li>
 
           <br></br>
           <p className='mainText' >Still have questions? Join our{' '}
