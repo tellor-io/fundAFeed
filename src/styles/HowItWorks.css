@@ -10,6 +10,13 @@
     margin-bottom: 20px;
 
   }
+  .subtitle{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    color: #20f092;
+  }
   .mainText{
     font-size: 22px;
     line-height: 28px;
@@ -70,11 +77,55 @@
     text-align: left;
   }
 
+  .subtitle{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: left;
+    color: #20f092;
+  }
+  .subtitle2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #20f092;
+  }
+  .subtitle2w{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+  }
+
   .mainText{
     font-size: 18px;
     line-height: 28px;
     font-weight: 300;
     margin-bottom: 30px;
+    color: #ffffff;
+  }
+
+  .mainText2{
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: -35px;
+    color: #ffffff;
+  }
+  .mainText2 > a {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+    margin-bottom: -40px;
+    color: #20f092;
   }
 
   .infoContainer{

@@ -4,25 +4,58 @@ import '../styles/HowItWorks.css'
 export default function HowItWorks() {
   return (
     <div className="wrapper">
+      <h1 className="subtitle2"> *Current Active Networks: <span className="subtitle2w"> Polygon Mainnet, Mumbai</span></h1>
       <h1 className="title">How It Works</h1>
       <p className='mainText' >
-      The Tellor system allows users to request specific pieces of data, and reporters can then submit those values. 
-      Every piece of data that is requested, reported, and retrieved within the Tellor system is associated with a Query Type, Query Data, 
-      and a specific identifier, known as the Query ID. 
-      </p>
-      <p className="HeroMainText">
-          Already have your{' '}
-          <a
+        Tellor's 'Fund-a-Feed' site makes requesting and funding a specific price feed an easy process for its users who have already implemented Tellor into their code using the corresponding{' '}
+          <a 
             href="https://querybuilder.tellor.io/spotprice"
             target="_blank"
             rel="noopener noreferrer"
           >
             SpotPrice Query ID
+          </a>. 
+          <br></br>
+          <br></br>
+          <div className="subtitle2">Before requesting a feed: </div> 
+          Make sure the price you are requesting has already been specified 
+          <a
+            href="https://github.com/tellor-io/telliot-feeds/tree/main/src/telliot_feeds/feeds"
+            target="_blank"
+            rel="noopener noreferrer"
+            > here
           </a>
-          ? To fund your feed, select your SpotPrice asset and currency, connect
-          your wallet to Polygon or Mumbai chains, and then set your funding
-          parameters.
+          .
+           <br></br>(if not, submit a github issue 
+          <a 
+            href="https://github.com/tellor-io/dataSpecs/issues/24"
+            target="_blank"
+            rel="noopener noreferrer"
+            > using this as an example
+          </a>
+          .)
+          <br></br>
+
+        <p>
+          <br></br>
+          <div className="subtitle2">To fund your feed:</div> <li>Connect your wallet to Polygon or Mumbai chains</li> 
+          <li>Select your SpotPrice asset and currency</li>
+          <li>Set your funding parameters</li>
+          <li>Verify, Approve, & Fund your feed</li>
+
+          <br></br>
+          <p className='mainText' >Still have questions? Join our{' '}
+            <a 
+              href="https://discord.gg/tellor"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+            Discord!
+            </a>
+          </p>
         </p>
+      </p>
+     
         <div className='infoContainer'>
           <a className='infoLink' target="_blank" rel="noreferrer" href="https://tellor.io/docs/">
             <button className='infoButtons'>Docs</button>

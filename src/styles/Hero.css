@@ -92,7 +92,7 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
     line-height: 60px;
-    margin-bottom: 20px;
+    margin-bottom: -20px;
   }
   .HeroMainText {
     font-size: 18px;
@@ -104,6 +104,10 @@
     color: #20f092;
     text-decoration: none;
   }
+  .mainText > a {
+    color: #20f092;
+    text-decoration: none;
+  }
   .HeroDropdowns > label {
     font-size: 18px;
     line-height: 28px;
@@ -111,6 +115,7 @@
   }
   #assetInput {
     margin-right: 16px;
+    margin-bottom: 30px;
   }
   .dropdown {
     width: 100px;
@@ -138,14 +143,14 @@
   }
   /* */
   .HeroInfoBox {
-    width: 418px;
+    width: 268px;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1em;
     padding-left: 0em;
     padding-right: 0em;
-    border: 2px solid #ffffff;
+    border: 2px solid #222222;
     margin: 44px 0px 30px 0px;
     user-select: none;
   }
