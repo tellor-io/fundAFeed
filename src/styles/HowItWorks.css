@@ -17,6 +17,33 @@
     margin-bottom: 20px;
     color: #20f092;
   }
+  .subtitle2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #20f092;
+  }
+  .subtitle2w{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 60px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+  }
+  .subtitle2l{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #20f092;
+  }
   .mainText{
     font-size: 22px;
     line-height: 28px;
@@ -97,13 +124,23 @@
   }
   .subtitle2w{
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 15px;
     line-height: 60px;
     margin-bottom: 0px;
     width: 100%;
     text-align: left;
     color: #ffffff;
   }
+  .subtitle2l{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 0px;
+    margin-bottom: 0px;
+    width: 100%;
+    text-align: left;
+    color: #20f092;
+  }
+
 
   .mainText{
     font-size: 18px;
