@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-//Router
-import { useLocation } from 'react-router-dom'
 //Context
 import { UserContext } from '../../contexts/User'
 //Utils
