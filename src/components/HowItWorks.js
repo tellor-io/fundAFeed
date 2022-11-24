@@ -4,7 +4,7 @@ import '../styles/HowItWorks.css'
 export default function HowItWorks() {
   return (
     <div className="wrapper">
-      <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w"> Polygon Mainnet, Mumbai Testnet</span></h1>
+      <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum Mainnet, Polygon Mainnet, Mumbai Testnet</span></h1>
       <h1 className="title">How It Works</h1>
       <p className='mainText' >
         Tellor's 'Fund-a-Feed' site makes requesting and funding a specific price feed an easy process for its users who have already implemented Tellor into their code using the corresponding{' '}
