@@ -1,6 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react'
-//Router
-import { useLocation } from 'react-router-dom'
 //Context
 import { UserContext } from '../../contexts/User'
 //Utils
@@ -46,14 +44,6 @@ function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash, pair }) {
       <div className="VerifyFundParameter">
         <p>{pair}</p>
       </div>
-      <a
-        className="VerifiedButton"
-        href={oneTimeTipTxnURL && oneTimeTipTxnURL}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Verified: View on Scan Explorer
-      </a>
     </div>
   )
 }

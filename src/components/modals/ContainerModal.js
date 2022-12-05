@@ -22,8 +22,10 @@ import { ApolloProvider, ApolloClient, InMemoryCache } from '@apollo/client'
 import {
   tellorAddressPolygon,
   tellorAddressMumbai,
+  tellorAddressMainnet,
   autopayAddressPolygon,
   autopayAddressMumbai,
+  autopayEthMainnet,
 } from '../../utils/helpers'
 
 //The Graph
@@ -83,6 +85,9 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
     } else if (user.currentUser.chainId === 137) {
       setTellorAddress(tellorAddressPolygon)
       setAutopayAddress(autopayAddressPolygon)
+    } else if (user.currentUser.chainId === 1) {
+      setTellorAddress(tellorAddressMainnet)
+      setAutopayAddress(autopayEthMainnet)
     } else {
       setTellorAddress(null)
       setAutopayAddress(null)

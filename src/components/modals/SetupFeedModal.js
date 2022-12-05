@@ -49,19 +49,6 @@ function SetupFeedModal({
       parameterForm.windowAmount,
       parameterForm.windowType
     )
-    encodedFeed = abiCoder.encode(
-      ['bytes32', 'address', 'uint256', 'uint256', 'uint256', 'uint256','uint256','uint256'],
-      [
-        spotPriceData.queryId.toString(),
-        tellorAddy.toString(),
-        reward,
-        startTime,
-        interval,
-        window,
-        0,
-        rewardIncreasePerSecond,
-      ]
-    )
     try {
       autopay = new user.currentUser.web3.eth.Contract(autopayABI, autopayAddy)
       setLoading(true)
