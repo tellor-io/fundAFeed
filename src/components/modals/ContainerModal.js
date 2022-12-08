@@ -23,9 +23,11 @@ import {
   tellorAddressPolygon,
   tellorAddressMumbai,
   tellorAddressMainnet,
+  tellorAddressGoerli,
   autopayAddressPolygon,
   autopayAddressMumbai,
   autopayEthMainnet,
+  autopayGoerli,
 } from '../../utils/helpers'
 
 //The Graph
@@ -88,6 +90,9 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
     } else if (user.currentUser.chainId === 1) {
       setTellorAddress(tellorAddressMainnet)
       setAutopayAddress(autopayEthMainnet)
+    } else if (user.currentUser.chainId === 5) {
+      setTellorAddress(tellorAddressGoerli)
+      setAutopayAddress(autopayGoerli)
     } else {
       setTellorAddress(null)
       setAutopayAddress(null)
@@ -103,7 +108,7 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
   useEffect(() => {
     if (!tellorAddress) {
       error.setError(
-        'Please switch your network to Polygon Matic Mainnet or Polygon Mumbai Testnet to set up a data feed. Thank you!'
+        'Please switch to an active network (listed above) to set up a data feed. Thank you!'
       )
     } else if (tellorAddress) {
       error.setError(null)

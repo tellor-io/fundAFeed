@@ -6,11 +6,13 @@ export const tellorAddressMainnet = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
 export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
-export const tellorAddressGoerli = '0x002E861910D7f87BAa832A22Ac436F25FB66FA24'
+export const tellorAddressGoerli = '0x51c59c6cAd28ce3693977F2feB4CfAebec30d8a2'
 export const autopayAddressPolygon =
-  '0xA33ca1062762c8591E29E65bf7aC7ae8EC88b183'
-export const autopayAddressMumbai = '0xA33ca1062762c8591E29E65bf7aC7ae8EC88b183'
+  '0x1775704809521D4D7ee65B6aFb93816af73476ec'
+export const autopayAddressMumbai = '0x1775704809521D4D7ee65B6aFb93816af73476ec'
 export const autopayEthMainnet = '0x1F033Cb8A2Df08a147BC512723fd0da3FEc5cCA7'
+export const autopayGoerli = '0x1F033Cb8A2Df08a147BC512723fd0da3FEc5cCA7'
+
 
 export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + '...' + addr.slice(-4)

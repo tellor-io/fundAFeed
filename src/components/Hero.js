@@ -153,9 +153,10 @@ function Hero() {
             </datalist>
             <label htmlFor="currency">Set Currency:</label>
             <input
-              list="currencyDropdown"
+              //list="currencyDropdown"
               type="text"
               name="currency"
+              id="assetInput"
               className="dropdown"
               value={dropdownForm.currency}
               onChange={handleDropdownChange}
