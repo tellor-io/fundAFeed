@@ -63,6 +63,41 @@ function Hero() {
       [event.target.name]: event.target.value,
     })
   }
+
+  const validateParameterChange = (event) => {
+    console.log(event)
+    if (parameterForm.durationType === 'minutes') {
+      if (event.target.value >= 5 ){
+        setParameterForm({
+          ...parameterForm,
+          [event.target.name]: event.target.value,
+        })
+      }
+      else {
+        alert('value has to be greater than 5')
+      }
+    }
+    else {
+      setParameterForm({
+        ...parameterForm,
+        [event.target.name]: event.target.value,
+      })
+    }
+  }
+
+  const validateParameterChangeTrb = (event) => {
+    console.log(event)
+    if (event.target.value >= 1 ){
+       setParameterForm({
+        ...parameterForm,
+        [event.target.name]: event.target.value,
+        })
+      }
+      else {
+        alert('value has to be greater than 0.1')
+      }
+    }
+
   const startModalFlow = () => {
     containerModal.style.display = 'flex'
   }
@@ -242,7 +277,7 @@ function Hero() {
                 className="HeroParameterFeedNumberInputLarge"
                 name="tipAmountDecimal"
                 value={parameterForm.tipAmountDecimal}
-                onChange={handleParameterChange}
+                onChange={validateParameterChangeTrb}
               />)
               TRB,
               <hr />
@@ -268,11 +303,12 @@ function Hero() {
               <hr />
                every{' '}
               <input
-                type="number"
+                type="number" required
                 className="HeroParameterFeedNumberInputLarge"
-                name="durationAmount"
+                name="durationAmount" 
+                min={parameterForm.durationType === 'minutes' ? 5 : undefined }                
                 value={parameterForm.durationAmount}
-                onChange={handleParameterChange}
+                onChange={validateParameterChange} 
               />
 
               <select
@@ -281,6 +317,7 @@ function Hero() {
                 name="durationType"
                 value={parameterForm.durationType}
                 onChange={handleParameterChange}
+                selected="minutes"
               >
                 <option value="minutes">minutes</option>
                 <option value="hours">hours</option>
