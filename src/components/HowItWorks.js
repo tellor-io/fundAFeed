@@ -18,7 +18,7 @@ export default function HowItWorks() {
           <br></br>
           <br></br>
           <div className="subtitle2">Before requesting a feed: </div> 
-          Make sure the price you are requesting has already been specified 
+          Make sure the price you are requesting is currently supported 
           <a
             href="https://github.com/tellor-io/telliot-feeds/tree/main/src/telliot_feeds/feeds"
             target="_blank"
@@ -26,12 +26,12 @@ export default function HowItWorks() {
             > here
           </a>
           .
-           <br></br>(if not, submit a github issue 
+           <br></br>(if not, please 
           <a 
-            href="https://github.com/tellor-io/dataSpecs/issues/24"
+            href="https://github.com/tellor-io/telliot-feeds/issues/new/choose"
             target="_blank"
             rel="noopener noreferrer"
-            > using this as an example
+            > fill this out
           </a>
           .)
           <br></br>
