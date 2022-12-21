@@ -87,7 +87,7 @@ function Hero() {
 
   const validateParameterChangeTrb = (event) => {
     console.log(event)
-    if (event.target.value >= 1 ){
+    if (event.target.value >= 0.1 ){
        setParameterForm({
         ...parameterForm,
         [event.target.name]: event.target.value,
@@ -133,7 +133,7 @@ function Hero() {
     if (!data.assets || !data.currencies) return
     if (
       data.assets.includes(dropdownForm.asset && dropdownForm.currency) &&
-      data.currencies.includes(dropdownForm.currency && dropdownForm.asset) &&
+      data.currencies.includes(dropdownForm.asset && dropdownForm.currency) &&
       dropdownForm.asset !== ''
     ) {
       setInfoBoxDisabled(false)
@@ -260,19 +260,10 @@ function Hero() {
               TRB to fund your feed,
               <hr />
               the 'autopay' smart contract will reward reporters  (
+          
               <input
                 type="number"
-                min={0}
-                max={9}
-                className="HeroParameterFeedNumberInputSmall"
-                name="tipAmountNumber"
-                value={parameterForm.tipAmountNumber}
-                onChange={handleParameterChange}
-              />
-              .
-              <input
-                type="number"
-                min={0}
+                min={0.1}
                 max={99}
                 className="HeroParameterFeedNumberInputLarge"
                 name="tipAmountDecimal"

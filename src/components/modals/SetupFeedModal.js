@@ -36,7 +36,7 @@ function SetupFeedModal({
 
     startTime = dateManipulator(parameterForm)
     reward = user.currentUser.web3.utils.toWei(
-      `${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal}`
+      `${parameterForm.tipAmountDecimal}`
     )
     rewardIncreasePerSecond = user.currentUser.web3.utils.toWei(
       `${parameterForm.rewardIncreasePerSecond}`
@@ -94,7 +94,7 @@ function SetupFeedModal({
       <div className="VerifyParameters">
         <p>
           Tip Amount:{' '}
-          <span className="bolded">{`${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal} TRB`}</span>
+          <span className="bolded">{`${parameterForm.tipAmountDecimal} TRB`}</span>
         </p>
         <p>
           Window:{' '}
