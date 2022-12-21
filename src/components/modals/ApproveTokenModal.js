@@ -122,7 +122,7 @@ function ApproveTokenModal({
       <div className="VerifyParametersApprove">
         <p>
           Tip Amount:{' '}
-          <span className="bolded">{`${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal} TRB`}</span>
+          <span className="bolded">{`${parameterForm.tipAmountDecimal} TRB`}</span>
         </p>
         <p>
           Window:{' '}

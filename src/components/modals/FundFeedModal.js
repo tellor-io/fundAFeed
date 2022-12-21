@@ -67,7 +67,7 @@ function FundFeedModal({ parameterForm, autopayAddy, thisFeedId, thisQueryId }) 
       <div className="VerifyParametersFund">
         <p>
           Tip Amount:{' '}
-          <span className="bolded">{`${parameterForm.tipAmountNumber}.${parameterForm.tipAmountDecimal} TRB`}</span>
+          <span className="bolded">{`${parameterForm.tipAmountDecimal} TRB`}</span>
         </p>
         <p>
           Window:{' '}
