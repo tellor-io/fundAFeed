@@ -132,8 +132,8 @@ function Hero() {
   useEffect(() => {
     if (!data.assets || !data.currencies) return
     if (
-      data.assets.includes(dropdownForm.asset) &&
-      data.currencies.includes(dropdownForm.currency) &&
+      data.assets.includes(dropdownForm.asset && dropdownForm.currency) &&
+      data.currencies.includes(dropdownForm.currency && dropdownForm.asset) &&
       dropdownForm.asset !== ''
     ) {
       setInfoBoxDisabled(false)
