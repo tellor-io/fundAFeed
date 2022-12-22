@@ -44,6 +44,10 @@ function ConfirmedModal({ parameterForm, closeModal }) {
       <h4 className="VerifyModalSubtitle">Your parameters:</h4>
       <div className="VerifyParametersFund">
         <p>
+          Total Fund Amount:{' '}
+          <span className="bolded">{`${parameterForm.fundAmount} TRB`}</span>
+        </p>
+        <p>
           Tip Amount:{' '}
           <span className="bolded">{`${parameterForm.tipAmountDecimal} TRB`}</span>
         </p>

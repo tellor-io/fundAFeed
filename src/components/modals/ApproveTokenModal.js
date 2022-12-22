@@ -121,6 +121,10 @@ function ApproveTokenModal({
       <h4 className="VerifyModalSubtitle">Your data feed parameters:</h4>
       <div className="VerifyParametersApprove">
         <p>
+          Total Fund Amount:{' '}
+          <span className="bolded">{`${parameterForm.fundAmount} TRB`}</span>
+        </p>
+        <p>
           Tip Amount:{' '}
           <span className="bolded">{`${parameterForm.tipAmountDecimal} TRB`}</span>
         </p>
