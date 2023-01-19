@@ -9,7 +9,7 @@ export default function HowItWorks() {
       <p className='mainText' >
         Tellor's 'Fund-a-Feed' site makes requesting and funding a specific price feed an easy process for its users who have already implemented Tellor into their code using the corresponding{' '}
           <a 
-            href="https://querybuilder.tellor.io/spotprice"
+            href="https://docs.tellor.io/tellor/getting-data/creating-a-query"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -28,7 +28,7 @@ export default function HowItWorks() {
           .
            <br></br>(if not, please 
           <a 
-            href="https://github.com/tellor-io/telliot-feeds/issues/new/choose"
+            href="https://github.com/tellor-io/dataSpecs/issues/new?assignees=&labels=&template=new_query_type.yaml&title=%5BNew+Data+Request+Form%5D%3A+"
             target="_blank"
             rel="noopener noreferrer"
             > fill this out
@@ -38,10 +38,10 @@ export default function HowItWorks() {
 
         <p>
           <br></br>
-          <div className="subtitle2">To fund your feed:</div> <li>Connect your wallet to the appropriate chain</li> 
-          <li>Select your SpotPrice asset and currency</li>
-          <li>Set your funding parameters</li>
-          <li>Verify, Approve, & Fund your feed</li>
+          <div className="subtitle2">To fund your feed:</div> <li>Connect wallet to the appropriate network</li> 
+          <li>Select SpotPrice asset & currency</li>
+          <li>Set funding parameters</li>
+          <li>Verify->Approve->Fund your feed</li>
 
           <br></br>
           <p className='mainText' >Still have questions? Join our{' '}
