@@ -20,14 +20,14 @@ const initialDropdownValues = {
 }
 
 const initialParameterValues = {
-  fundAmount: 1,
-  rewardIncreasePerSecond: 0,
+  fundAmount: 100,
+  rewardIncreasePerSecond: 0.1,
   tipAmountNumber: 0,
-  tipAmountDecimal: 25,
-  windowAmount: 30,
+  tipAmountDecimal: 2,
+  windowAmount: 10,
   windowType: 'minute',
-  durationAmount: 6,
-  durationType: 'hours',
+  durationAmount: 30,
+  durationType: 'minutes',
   startHourFirst: 0,
   startHourSecond: 0,
   startMinuteFirst: 0,
@@ -259,7 +259,7 @@ function Hero() {
               />{' '}
               TRB to fund your feed,
               <hr />
-              the 'autopay' smart contract will reward reporters  (
+              this feed will reward reporters  (
           
               <input
                 type="number"
@@ -270,29 +270,7 @@ function Hero() {
                 value={parameterForm.tipAmountDecimal}
                 onChange={validateParameterChangeTrb}
               />)
-              TRB,
-              <hr />
-              for data reported within a{' '}
-              <input
-                type="number"
-                className="HeroParameterFeedNumberInputLarge"
-                name="windowAmount"
-                value={parameterForm.windowAmount}
-                onChange={handleParameterChange}
-              />
-              <select
-                type="text"
-                className="HeroParameterDropdownInput"
-                name="windowType"
-                value={parameterForm.windowType}
-                onChange={handleParameterChange}
-              >
-                <option value="minute">minute</option>
-                <option value="hour">hour</option>
-                <option value="day">day</option>
-              </select>{' '} window,
-              <hr />
-               every{' '}
+              TRB, every{' '}
               <input
                 type="number" required
                 className="HeroParameterFeedNumberInputLarge"
@@ -314,7 +292,30 @@ function Hero() {
                 <option value="hours">hours</option>
                 <option value="days">days</option>
               </select>{' '}
-              beginning at{' '}
+              <hr />
+             
+              for data reported within a{' '}
+              <input
+                type="number"
+                className="HeroParameterFeedNumberInputLarge"
+                name="windowAmount"
+                value={parameterForm.windowAmount}
+                onChange={handleParameterChange}
+              />
+              <select
+                type="text"
+                className="HeroParameterDropdownInput"
+                name="windowType"
+                value={parameterForm.windowType}
+                onChange={handleParameterChange}
+              >
+                <option value="minute">minute</option>
+                <option value="hour">hour</option>
+                <option value="day">day</option>
+              </select>{' '} window,
+              <hr />
+               
+              beginning at (24-hr clock) {' '}
               <input
                 type="number"
                 min={0}
@@ -352,10 +353,7 @@ function Hero() {
                 value={parameterForm.startMinuteSecond}
                 onChange={handleParameterChange}
               />{' '}
-              my local time,
-              <hr />
-              on{' '}
-              <input
+               my local time, on the date (DD/MM/YYYY) <br></br><input
                 type="number"
                 min={1}
                 max={31}
@@ -385,7 +383,10 @@ function Hero() {
                 <option value="2024">2024</option>
                 <option value="2025">2025</option>
               </select>
-              (DD/MM/YYYY).
+              .
+              <hr />
+              {' '}
+              
               <hr />
               Rewards will increase by (
               <input

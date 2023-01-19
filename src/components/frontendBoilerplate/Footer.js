@@ -3,7 +3,7 @@ import "../../styles/frontendBoilerplate/Footer.css"
 
 const links = [
   {
-    title: 'Connect',
+    title: 'Contact',
     link: 'https://linktr.ee/Tellor'
   },  
   {
@@ -19,7 +19,7 @@ const links = [
 function Footer() {
   return (
     <div className="Footer">
-      <p className="FooterText">&copy; 2022 Tellor, Inc.</p>
+      <p className="FooterText">&copy; 2023 Tellor, Inc.</p>
 
       <nav className="FooterNav">
         {links.map((link, i) => 
