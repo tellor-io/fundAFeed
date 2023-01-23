@@ -7,18 +7,11 @@ export default function HowItWorks() {
       <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum Mainnet, Goerli Testnet, Polygon Mainnet, Mumbai Testnet</span></h1>
       <h1 className="title">How It Works</h1>
       <p className='mainText' >
-        Tellor's 'Fund-a-Feed' site makes requesting and funding a specific price feed an easy process for its users who have already implemented Tellor into their code using the corresponding{' '}
-          <a 
-            href="https://docs.tellor.io/tellor/getting-data/creating-a-query"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            SpotPrice Query ID
-          </a>. 
+       Fund any price-feed to get reported to the Tellor oracle by filling out the fields on the right-hand side of the page. Once completed, reporters will race to pick up the rewards and report as requested. Make sure to leave time for disputes!
           <br></br>
           <br></br>
           <div className="subtitle2">Before requesting a feed: </div> 
-          Make sure the price you are requesting is currently supported 
+          -Confirm the price you are requesting is currently supported 
           <a
             href="https://github.com/tellor-io/telliot-feeds/tree/main/src/telliot_feeds/feeds"
             target="_blank"
@@ -35,13 +28,20 @@ export default function HowItWorks() {
           </a>
           .)
           <br></br>
-
+          -Users of the requested data will want to integrate Tellor into their code using the corresponding{' '}
+          <a 
+            href="https://docs.tellor.io/tellor/getting-data/creating-a-query"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            SpotPrice Query ID
+          </a>. 
         <p>
           <br></br>
           <div className="subtitle2">To fund your feed:</div> <li>Connect wallet to the appropriate network</li> 
-          <li>Select SpotPrice asset & currency</li>
+          <li>Input SpotPrice asset & currency</li>
           <li>Set funding parameters</li>
-          <li>Verify->Approve->Fund your feed</li>
+          <li>Verify -> Approve -> Fund your feed</li>
 
           <br></br>
           <p className='mainText' >Still have questions? Join our{' '}

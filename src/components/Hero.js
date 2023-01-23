@@ -312,7 +312,7 @@ function Hero() {
                 <option value="minute">minute</option>
                 <option value="hour">hour</option>
                 <option value="day">day</option>
-              </select>{' '} window,
+              </select>{' '} window, (should be less than or equal to previous field)
               <hr />
                
               beginning at (24-hr clock) {' '}
