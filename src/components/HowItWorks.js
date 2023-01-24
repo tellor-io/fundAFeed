@@ -7,7 +7,7 @@ export default function HowItWorks() {
       <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum Mainnet, Goerli Testnet, Polygon Mainnet, Mumbai Testnet</span></h1>
       <h1 className="title">How It Works</h1>
       <p className='mainText' >
-       Fund any price-feed to get reported to the Tellor oracle by filling out the fields on the right-hand side of the page. Once completed, reporters will race to pick up the rewards and report as requested. Make sure to leave time for disputes!
+       Fund any price-feed to get reported to the Tellor oracle by filling out the fields on the right-hand side of the page. Once completed, reporters will race to pick up the rewards and report the price data as specified.
           <br></br>
           <br></br>
           <div className="subtitle2">Before requesting a feed: </div> 
@@ -38,10 +38,10 @@ export default function HowItWorks() {
           </a>. 
         <p>
           <br></br>
-          <div className="subtitle2">To fund your feed:</div> <li>Connect wallet to the appropriate network</li> 
-          <li>Input SpotPrice asset & currency</li>
+          <div className="subtitle2">To fund your price-feed:</div> <li>Connect wallet to the appropriate network</li> 
+          <li>Input desired asset & currency</li>
           <li>Set funding parameters</li>
-          <li>Verify -> Approve -> Fund your feed</li>
+          <li>COnfirm -> Approve -> Fund your feed</li>
 
           <br></br>
           <p className='mainText' >Still have questions? Join our{' '}
