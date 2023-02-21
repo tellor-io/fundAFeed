@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 //Context
 import { UserContext } from '../../contexts/User'
 import { ErrorContext } from '../../contexts/Error'
-import { GraphContext } from '../../contexts/Graph'
+//import { GraphContext } from '../../contexts/Graph'
 //Utils
 import tellorTokenPolygonABI from '../../utils/tellorTokenPolygonABI.json'
 import { dateHelper } from '../../utils/time'
@@ -26,7 +26,7 @@ function ApproveTokenModal({
   //Context
   const user = useContext(UserContext)
   const error = useContext(ErrorContext)
-  const graphData = useContext(GraphContext)
+  //const graphData = useContext(GraphContext)
   //Component State
   const [txnURL, setTxnURL] = useState(null)
   //React-Router-Dom
@@ -36,7 +36,7 @@ function ApproveTokenModal({
 
   //useEffect for extracting available
   //feedIds from the graph
-  useEffect(() => {
+  /*useEffect(() => {
     if (!graphData || !graphData.graphData || !graphData.graphData.data) return
     let feedIdArray = []
     if (graphData.graphData.data.newDataFeedEntities) {
@@ -55,7 +55,7 @@ function ApproveTokenModal({
     graphData && graphData.graphData && graphData.graphData.data
       ? graphData.graphData.data.newDataFeedEntities
       : graphData,
-  ])
+  ])*/
 
   //Comment out for production
   useEffect(() => {

@@ -24,10 +24,14 @@ import {
   tellorAddressMumbai,
   tellorAddressMainnet,
   tellorAddressGoerli,
+  tellorAddressGnosismain,
+  tellorAddressChiado,
   autopayAddressPolygon,
   autopayAddressMumbai,
   autopayEthMainnet,
   autopayGoerli,
+  autopayGnosismain,
+  autopayChiado
 } from '../../utils/helpers'
 
 //The Graph
@@ -93,6 +97,12 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
     } else if (user.currentUser.chainId === 5) {
       setTellorAddress(tellorAddressGoerli)
       setAutopayAddress(autopayGoerli)
+    } else if (user.currentUser.chainId === 100) {
+      setTellorAddress(tellorAddressGnosismain)
+      setAutopayAddress(autopayGnosismain)
+    } else if (user.currentUser.chainId === 10200) {
+      setTellorAddress(tellorAddressChiado)
+      setAutopayAddress(autopayChiado)
     } else {
       setTellorAddress(null)
       setAutopayAddress(null)
