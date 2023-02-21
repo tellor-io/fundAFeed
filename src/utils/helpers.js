@@ -7,11 +7,14 @@ export const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
 export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
 export const tellorAddressGoerli = '0x51c59c6cAd28ce3693977F2feB4CfAebec30d8a2'
-export const autopayAddressPolygon =
-  '0x1775704809521D4D7ee65B6aFb93816af73476ec'
-export const autopayAddressMumbai = '0x1775704809521D4D7ee65B6aFb93816af73476ec'
-export const autopayEthMainnet = '0x1F033Cb8A2Df08a147BC512723fd0da3FEc5cCA7'
-export const autopayGoerli = '0x1F033Cb8A2Df08a147BC512723fd0da3FEc5cCA7'
+export const tellorAddressGnosismain = '0xAAd66432d27737ecf6ED183160Adc5eF36aB99f2'
+export const tellorAddressChiado = '0xe7147C5Ed14F545B4B17251992D1DB2bdfa26B6d'
+export const autopayAddressPolygon ='0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayAddressMumbai = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayEthMainnet = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayGoerli = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayGnosismain = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayChiado = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 
 
 export const truncateAddr = (addr) => {
@@ -20,13 +23,12 @@ export const truncateAddr = (addr) => {
 
 export const getAssetBalances = async (web3, address, chainId) => {
   //Instantiating Contracts
-  const trbContractEthereum = new web3.eth.Contract(
-    minABI,
-    tellorAddressMainnet
-  )
+  const trbContractEthereum = new web3.eth.Contract(minABI,tellorAddressMainnet)
   const trbContractPolygon = new web3.eth.Contract(minABI, tellorAddressPolygon)
   const trbContractMumbai = new web3.eth.Contract(minABI, tellorAddressMumbai)
   const trbContractGoerli = new web3.eth.Contract(minABI, tellorAddressGoerli)
+  const trbContractGnosismain = new web3.eth.Contract(minABI, tellorAddressGnosismain)
+  const trbContractChiado = new web3.eth.Contract(minABI, tellorAddressChiado)
   //Function Globals
   let chainMainTokenBalance
   let trbBalance
@@ -95,6 +97,34 @@ export const getAssetBalances = async (web3, address, chainId) => {
         await web3.eth.getBalance(address)
       )
       trbBalance = await trbContractMumbai.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 100:
+      //Main Chain Balance - Gnosis
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractGnosismain.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 10200:
+      //Main Chain Balance - MUMBAI
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractChiado.methods
         .balanceOf(address)
         .call()
         .then((res) => web3.utils.fromWei(res))
