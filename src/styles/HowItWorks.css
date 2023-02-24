@@ -28,8 +28,8 @@
   }
   .subtitle2w{
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    line-height: 60px;
+    font-size: 15px;
+    line-height: 50px;
     margin-bottom: 0px;
     width: 100%;
     text-align: left;
@@ -38,7 +38,7 @@
   .subtitle2l{
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    line-height: 0px;
+    line-height: 10px;
     margin-bottom: 20px;
     width: 100%;
     text-align: left;
@@ -84,7 +84,7 @@
 
 @media (min-width: 786px) {
   .wrapper{
-    width: 80%;
+    width: 90%;
     margin-left: 10%;
     margin-top: 2em;
     grid-column: 1;
@@ -98,8 +98,8 @@
   .title{
     font-family: 'Montserrat', sans-serif;
     font-size: 40px;
-    line-height: 60px;
-    margin-bottom: 20px;
+    line-height: 100px;
+    margin-bottom: -10px;
     width: 100%;
     text-align: left;
   }
@@ -125,7 +125,7 @@
   .subtitle2w{
     font-family: 'Montserrat', sans-serif;
     font-size: 13px;
-    line-height: 40px;
+    line-height: 10px;
     margin-top: 100px;
     padding: 0px 0px;
     margin-bottom: 0px;
@@ -137,7 +137,7 @@
   .subtitle2l{
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
-    line-height: 0px;
+    line-height: 30px;
     margin-bottom: 0px;
     width: 100%;
     text-align: left;

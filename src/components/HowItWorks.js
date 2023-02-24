@@ -4,7 +4,7 @@ import '../styles/HowItWorks.css'
 export default function HowItWorks() {
   return (
     <div className="wrapper">
-      <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum Main/Goerli, Polygon Main/Mumbai, Gnosis Main/Chiado </span></h1>
+      <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum Main/Goerli, Polygon Main/Mumbai, Gnosis Main/Chiado, Optimisim Main/Goerli, Arbitrum One/Goerli </span></h1>
       <h1 className="title">How It Works</h1>
       <p className='mainText' >
        Fund any price-feed to get reported to the Tellor oracle by filling out the fields on the right-hand side of the page. Once completed, reporters will race to pick up the rewards and report the price data as specified.

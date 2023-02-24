@@ -9,12 +9,20 @@ export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
 export const tellorAddressGoerli = '0x51c59c6cAd28ce3693977F2feB4CfAebec30d8a2'
 export const tellorAddressGnosismain = '0xAAd66432d27737ecf6ED183160Adc5eF36aB99f2'
 export const tellorAddressChiado = '0xe7147C5Ed14F545B4B17251992D1DB2bdfa26B6d'
+export const tellorAddressOpmain = '0xaf8cA653Fa2772d58f4368B0a71980e9E3cEB888'
+export const tellorAddressOptest = '0x3251838bd813fdf6a97D32781e011cce8D225d59'
+export const tellorAddressArbone = '0xd58D345Fd9c82262E087d2D0607624B410D88242'
+export const tellorAddressArbtest = '0x8d1bB5eDdFce08B92dD47c9871d1805211C3Eb3C'
 export const autopayAddressPolygon ='0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayAddressMumbai = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayEthMainnet = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayGoerli = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayGnosismain = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayChiado = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayOpmain = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayOptest = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayArbone = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayArbtest = '0x60cBf3991F05a0671250e673Aa166e9D1A0C662E'
 
 
 export const truncateAddr = (addr) => {
@@ -29,6 +37,10 @@ export const getAssetBalances = async (web3, address, chainId) => {
   const trbContractGoerli = new web3.eth.Contract(minABI, tellorAddressGoerli)
   const trbContractGnosismain = new web3.eth.Contract(minABI, tellorAddressGnosismain)
   const trbContractChiado = new web3.eth.Contract(minABI, tellorAddressChiado)
+  const trbContractOpmain = new web3.eth.Contract(minABI, tellorAddressOpmain)
+  const trbContractOptest = new web3.eth.Contract(minABI, tellorAddressOptest)
+  const trbContractArbone = new web3.eth.Contract(minABI, tellorAddressArbone)
+  const trbContractArbtest = new web3.eth.Contract(minABI, tellorAddressArbtest)
   //Function Globals
   let chainMainTokenBalance
   let trbBalance
@@ -120,11 +132,67 @@ export const getAssetBalances = async (web3, address, chainId) => {
         trb: Math.round(trbBalance * 100) / 100,
       }
       case 10200:
-      //Main Chain Balance - MUMBAI
+      //Main Chain Balance - Chiado
       chainMainTokenBalance = web3.utils.fromWei(
         await web3.eth.getBalance(address)
       )
       trbBalance = await trbContractChiado.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 10:
+      //Main Chain Balance - Optimism Mainnet
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractOpmain.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 420:
+      //Main Chain Balance - Optimism testnet
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractOptest.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 42161:
+      //Main Chain Balance - MUMBAI
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractArbone.methods
+        .balanceOf(address)
+        .call()
+        .then((res) => web3.utils.fromWei(res))
+      //Add more assets here if needed
+      return {
+        main: Math.round(chainMainTokenBalance * 100) / 100,
+        trb: Math.round(trbBalance * 100) / 100,
+      }
+      case 421613:
+      //Main Chain Balance - Arbitrum Goerli
+      chainMainTokenBalance = web3.utils.fromWei(
+        await web3.eth.getBalance(address)
+      )
+      trbBalance = await trbContractArbtest.methods
         .balanceOf(address)
         .call()
         .then((res) => web3.utils.fromWei(res))

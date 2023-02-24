@@ -20,7 +20,7 @@ const initialDropdownValues = {
 }
 
 const initialParameterValues = {
-  fundAmount: 100,
+  fundAmount: 5,
   rewardIncreasePerSecond: 0.1,
   tipAmountNumber: 0,
   tipAmountDecimal: 2,
