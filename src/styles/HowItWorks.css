@@ -123,8 +123,9 @@
     color: #20f092;
   }
   .subtitle2w{
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
+    font-family: 'Inconsolata', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
     line-height: 10px;
     margin-top: 100px;
     padding: 0px 0px;
