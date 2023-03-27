@@ -15,8 +15,8 @@ import ContainerModal from './modals/ContainerModal'
 import { dateHelper } from '../utils/time'
 
 const initialDropdownValues = {
-  asset: '',
-  currency: '',
+  asset: 'eur',
+  currency: 'usd',
 }
 
 const initialParameterValues = {
@@ -132,10 +132,9 @@ function Hero() {
   useEffect(() => {
     if (!data.assets || !data.currencies) return
     if (
-      data.assets.includes(dropdownForm.asset && dropdownForm.currency) &&
-      data.currencies.includes(dropdownForm.asset && dropdownForm.currency) &&
+ 
       dropdownForm.asset !== ''
-    ) {
+    ){
       setInfoBoxDisabled(false)
     } else {
       setInfoBoxDisabled(true)
