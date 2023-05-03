@@ -3,6 +3,7 @@ module.exports = {
     3: "ropsten",
     4: "rinkeby",
     5: "goerli",
+    11155111: "sepolia",
     42: "kovan",
     10200: "gnosis chiado testnet",
     100: "gnosis mainnet",
