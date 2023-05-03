@@ -24,6 +24,7 @@ import {
   tellorAddressMumbai,
   tellorAddressMainnet,
   tellorAddressGoerli,
+  tellorAddressSepolia,
   tellorAddressGnosismain,
   tellorAddressChiado,
   tellorAddressOpmain,
@@ -34,6 +35,7 @@ import {
   autopayAddressMumbai,
   autopayEthMainnet,
   autopayGoerli,
+  autopaySepolia,
   autopayGnosismain,
   autopayChiado,
   autopayOpmain,
@@ -105,6 +107,10 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
     } else if (user.currentUser.chainId === 5) {
       setTellorAddress(tellorAddressGoerli)
       setAutopayAddress(autopayGoerli)
+    } 
+    else if (user.currentUser.chainId === 11155111) {
+      setTellorAddress(tellorAddressSepolia)
+      setAutopayAddress(autopaySepolia)
     } else if (user.currentUser.chainId === 100) {
       setTellorAddress(tellorAddressGnosismain)
       setAutopayAddress(autopayGnosismain)
