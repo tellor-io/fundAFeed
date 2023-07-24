@@ -23,6 +23,14 @@ function ConfirmedModal({ parameterForm, closeModal }) {
       setFundFeedTxnURL(
         `https://mumbai.polygonscan.com/tx/${state.fundFeedTxnHash}`
       )
+    } else if (user.currentUser.network === 'filecoin mainnet') {
+      setFundFeedTxnURL(
+        `https://filfox.info/en/address/${state.fundFeedTxnHash}`
+      )
+    } else if (user.currentUser.network === 'calibration') {
+      setFundFeedTxnURL(
+        `https://calibration.filfox.info/en/address/${state.fundFeedTxnHash}`
+      )
     }
   }, [user, state])
 

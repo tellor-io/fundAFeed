@@ -247,7 +247,7 @@ function Hero() {
                 : 'HeroSetParameters disabled'
             }
           >
-            <p>
+            <div>
               With{' '}
               <input
                 type="number"
@@ -399,10 +399,10 @@ function Hero() {
                 name="rewardIncreasePerSecond"
                 value={parameterForm.rewardIncreasePerSecond}
                 onChange={handleParameterChange}
-              /> TRB / per second) 
+              /> TRB / per second) ple
               until a value is mined.
               <hr />
-            </p>
+            </div>
           </div>
           <div
             className={
