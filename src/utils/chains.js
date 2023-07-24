@@ -2,7 +2,7 @@ module.exports = {
     1: "mainnet",
     3: "ropsten",
     4: "rinkeby",
-    5: "goerli",
+    314159: "calibration",
     11155111: "sepolia",
     42: "kovan",
     10200: "gnosis chiado testnet",

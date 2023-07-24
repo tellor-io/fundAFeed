@@ -6,7 +6,7 @@ export default function HowItWorks() {
     <div className="wrapper">
       <h1 className="subtitle2l"> *Active Networks:<br></br> <span className="subtitle2w">Ethereum - Polygon - Gnosis - Optimism - Arbitrum  </span></h1>
       <h1 className="title">How It Works</h1>
-      <p className='mainText' >
+      <div className='mainText' >
        Fund any price-feed to get reported to the Tellor oracle by filling out the fields on the right-hand side of the page. Once completed, reporters will race to pick up the rewards and report the price data as specified.
           <br></br>
           <br></br>
@@ -36,7 +36,7 @@ export default function HowItWorks() {
           >
             SpotPrice Query ID
           </a>. 
-        <p>
+        <div>
           <br></br>
           <div className="subtitle2">To fund your price-feed:</div> <li>Connect wallet to the appropriate network</li> 
           <li>Input desired asset & currency</li>
@@ -53,8 +53,8 @@ export default function HowItWorks() {
             Discord!
             </a>
           </p>
-        </p>
-      </p>
+        </div>
+      </div>
      
         <div className='infoContainer'>
           <a className='infoLink' target="_blank" rel="noreferrer" href="https://tellor.io/docs/">
