@@ -6,6 +6,7 @@ export const tellorAddressMainnet = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressRinekby = '0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0'
 export const tellorAddressPolygon = '0xE3322702BEdaaEd36CdDAb233360B939775ae5f1'
 export const tellorAddressMumbai = '0xce4e32fe9d894f8185271aa990d2db425df3e6be'
+export const tellorAddressFileMain = '0x045CE60839d108B43dF9e703d4b25402a6a28a0d'
 export const tellorAddressCalibration = '0x15e6Cc0D69A162151Cadfba035aa10b82b12b970'
 export const tellorAddressSepolia = '0x80fc34a2f9FfE86F41580F47368289C402DEc660'
 export const tellorAddressGnosismain = '0xAAd66432d27737ecf6ED183160Adc5eF36aB99f2'
@@ -17,6 +18,7 @@ export const tellorAddressArbtest = '0x8d1bB5eDdFce08B92dD47c9871d1805211C3Eb3C'
 export const autopayAddressPolygon ='0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayAddressMumbai = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
 export const autopayEthMainnet = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
+export const autopayFileMain = '0x60cBf3991F05a0671250e673Aa166e9D1A0C662E'
 export const autopayCalibration = '0x60cBf3991F05a0671250e673Aa166e9D1A0C662E'
 export const autopaySepolia = '0x7E7b96d13D75bc7DaF270A491e2f1e571147d4DA'
 export const autopayGnosismain = '0x9BE9B0CFA89Ea800556C6efbA67b455D336db1D0'
@@ -36,6 +38,7 @@ export const getAssetBalances = async (web3, address, chainId) => {
   const trbContractEthereum = new web3.eth.Contract(minABI,tellorAddressMainnet)
   const trbContractPolygon = new web3.eth.Contract(minABI, tellorAddressPolygon)
   const trbContractMumbai = new web3.eth.Contract(minABI, tellorAddressMumbai)
+  const trbContractFileMain = new web3.eth.Contract(minABI, tellorAddressFileMain)
   const trbContractCalibration = new web3.eth.Contract(minABI, tellorAddressCalibration)
   const trbContractSepolia = new web3.eth.Contract(minABI, tellorAddressSepolia)
   const trbContractGnosismain = new web3.eth.Contract(minABI, tellorAddressGnosismain)
@@ -78,6 +81,20 @@ export const getAssetBalances = async (web3, address, chainId) => {
         main: Math.round(chainMainTokenBalance * 100) / 100,
         trb: Math.round(trbBalance * 100) / 100,
       }
+      case 314:
+        //Main Chain Balance - Filecoin Mainnet
+        chainMainTokenBalance = web3.utils.fromWei(
+          await web3.eth.getBalance(address)
+        )
+        trbBalance = await trbContractFileMain.methods
+          .balanceOf(address)
+          .call()
+          .then((res) => web3.utils.fromWei(res))
+        //Add more assets here if needed
+        return {
+          main: Math.round(chainMainTokenBalance * 100) / 100,
+          trb: Math.round(trbBalance * 100) / 100,
+        }
     case 314159:
       //Main Chain Balance - Calibration
       chainMainTokenBalance = web3.utils.fromWei(

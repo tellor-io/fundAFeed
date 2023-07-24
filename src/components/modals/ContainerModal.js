@@ -23,6 +23,7 @@ import {
   tellorAddressPolygon,
   tellorAddressMumbai,
   tellorAddressMainnet,
+  tellorAddressFileMain,
   tellorAddressCalibration,
   tellorAddressSepolia,
   tellorAddressGnosismain,
@@ -34,6 +35,7 @@ import {
   autopayAddressPolygon,
   autopayAddressMumbai,
   autopayEthMainnet,
+  autopayFileMain,
   autopayCalibration,
   autopaySepolia,
   autopayGnosismain,
@@ -104,7 +106,10 @@ function ContainerModal({ modal, parameterForm, transactionType, pair }) {
     } else if (user.currentUser.chainId === 1) {
       setTellorAddress(tellorAddressMainnet)
       setAutopayAddress(autopayEthMainnet)
-    } else if (user.currentUser.chainId === 314159) {
+    } else if (user.currentUser.chainId === 314) {
+      setTellorAddress(tellorAddressFileMain)
+      setAutopayAddress(autopayFileMain)
+    }else if (user.currentUser.chainId === 314159) {
       setTellorAddress(tellorAddressCalibration)
       setAutopayAddress(autopayCalibration)
     } else if (user.currentUser.chainId === 11155111) {

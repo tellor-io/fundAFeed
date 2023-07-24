@@ -2,6 +2,7 @@ module.exports = {
     1: "mainnet",
     3: "ropsten",
     4: "rinkeby",
+    314: "filecoin mainnet",
     314159: "calibration",
     11155111: "sepolia",
     42: "kovan",

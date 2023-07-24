@@ -18,7 +18,15 @@ function ConfirmOneTimeTipModal({ parameterForm, closeModal, txnHash, pair }) {
       setOneTimeTipTxnURL(
         `https://mumbai.polygonscan.com/tx/${txnHash}`
       )
-    }
+    } else if (user.currentUser.network === 'filecoin mainnet') {
+        setOneTimeTipTxnURL(
+          `https://filfox.info/en/address/${txnHash}`
+        )
+      } else if (user.currentUser.network === 'calibration') {
+        setOneTimeTipTxnURL(
+          `https://calibration.filfox.info/en/address/${txnHash}`
+        )
+      }
   }, [user])
 
   return (
