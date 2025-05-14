@@ -22,15 +22,18 @@
     "react-responsive": "^9.0.0-beta.6",
     "react-router-dom": "^6.2.2",
     "react-scripts": "4.0.3",
+    "serve": "^14.2.1",
     "web-vitals": "^1.0.1",
     "web3": "^1.7.1",
     "web3modal": "^1.9.5"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "serve -s build",
+    "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [
