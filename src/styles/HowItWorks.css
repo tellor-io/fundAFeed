@@ -4,21 +4,21 @@
     padding: 1em;
   }
   .title{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 32px;
     line-height: 60px;
     margin-bottom: 20px;
 
   }
   .subtitle{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 60px;
     margin-bottom: 20px;
     color: #20f092;
   }
   .subtitle2{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 60px;
     margin-bottom: 0px;
@@ -27,7 +27,7 @@
     color: #20f092;
   }
   .subtitle2w{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 15px;
     line-height: 50px;
     margin-bottom: 0px;
@@ -36,7 +36,7 @@
     color: #ffffff;
   }
   .subtitle2l{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 10px;
     margin-bottom: 20px;
@@ -96,7 +96,7 @@
   }
 
   .title{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 40px;
     line-height: 100px;
     margin-bottom: -10px;
@@ -105,7 +105,7 @@
   }
 
   .subtitle{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 60px;
     margin-bottom: 20px;
@@ -114,7 +114,7 @@
     color: #20f092;
   }
   .subtitle2{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 60px;
     margin-bottom: 0px;
@@ -123,7 +123,7 @@
     color: #20f092;
   }
   .subtitle2w{
-    font-family: 'Inconsolata', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 17px;
     font-weight: 300;
     line-height: 10px;
@@ -136,7 +136,7 @@
     color: #ffffff;
   }
   .subtitle2l{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 20px;
     line-height: 30px;
     margin-bottom: 0px;
