@@ -11,7 +11,7 @@
     margin-bottom: 2em;
   }
   .HeroHeader {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     margin-top: 1em;
     margin-bottom: 1em;
   }
@@ -89,7 +89,7 @@
     margin-bottom: 1em;
   }
   .HeroHeader {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 40px;
     line-height: 60px;
     margin-bottom: -20px;
@@ -121,7 +121,7 @@
   .dropdown {
     width: 100px;
     height: 22px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding-left: 5px;
@@ -180,7 +180,7 @@
   .HeroParameterFeedNumberInputLarge {
     width: 50px;
     height: 25px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding: 0;
@@ -203,7 +203,7 @@
   .HeroParameterNumberInput {
     width: 25px;
     height: 25px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding: 0;
@@ -229,7 +229,7 @@
   .HeroParameterDropdownInput {
     width: 90px;
     height: 27px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     border: none;
@@ -253,7 +253,7 @@
   .HeroParameterFeedNumberInputSmall {
     width: 25px;
     height: 25px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding: 0;
@@ -275,7 +275,7 @@
   .HeroParameterFeedNumberInputMedium {
     width: 40px;
     height: 25px;
-    font-family: 'Inconsolata';
+    font-family: 'Neue Montreal', sans-serif;
     font-size: 18px;
     font-weight: 300;
     padding: 0;
